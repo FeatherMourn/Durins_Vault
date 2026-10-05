@@ -106,7 +106,8 @@ namespace DurinsVault
                 if (!firstProperty) output << ',';
                 firstProperty = false;
                 output << "{\"name\":\"" << jsonAscii(property->GetName())
-                       << "\",\"offset\":" << property->GetOffset_Internal() << "}";
+                       << "\",\"offset\":" << property->GetOffset_Internal();
+                output << "}";
             }
             output << ']';
             output << "}\n";
