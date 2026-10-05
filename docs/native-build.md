@@ -28,3 +28,13 @@ When a complete, license-compatible UE4SS developer source tree is available,
 pass it explicitly with `-UE4SSSource` and then configure the CMake project.
 The source tree should remain external to this repository; only the module
 source and build instructions belong here.
+
+The local MoriaAdvancedBuilder reference contains a complete CMake dependency
+tree under `RE-UE4SS`, so it can be used as an external build input for
+experimentation. From a Visual Studio developer shell:
+
+```powershell
+cmake -S .\runtime -B .\working\build\native `
+  -DUE4SS_SOURCE='I:\My Drive\Mines of Moria Mods\work\reference\MoriaAdvancedBuilder\RE-UE4SS'
+cmake --build .\working\build\native --config Release --target DurinsVaultInspector
+```
