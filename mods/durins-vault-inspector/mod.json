@@ -11,6 +11,11 @@
   "layers": {
     "runtime": [
       {
+        "source": "runtime/DurinsVaultInspectorLua/enabled.txt",
+        "destination": "${game_root}/Moria/Binaries/Win64/ue4ss/Mods/DurinsVaultInspector/enabled.txt",
+        "load_order": 100
+      },
+      {
         "source": "runtime/DurinsVaultInspectorLua/Scripts/main.lua",
         "destination": "${game_root}/Moria/Binaries/Win64/ue4ss/Mods/DurinsVaultInspector/Scripts/main.lua",
         "load_order": 100

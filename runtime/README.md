@@ -23,6 +23,9 @@ timestamp, the target actor full name, and its class full name. This file is a
 runtime evidence handoff; it is not automatically committed to the repository
 because it is generated from the user's game session.
 
+UE4SS Lua discovery uses the `enabled.txt` marker beside the `Scripts` folder;
+the inspector package includes that marker explicitly.
+
 After an in-game F3 inspection, validate the log before using it as research:
 
 ```powershell
