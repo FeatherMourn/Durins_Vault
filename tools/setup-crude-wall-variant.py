@@ -22,6 +22,5 @@ else:
         if created:
             created.set_editor_property("variable_name", component_name)
 
-unreal.KismetEditorUtilities.compile_blueprint(blueprint)
 unreal.EditorAssetLibrary.save_loaded_asset(blueprint)
 unreal.log("Durin's Vault prototype shell saved: " + BLUEPRINT_PATH)
