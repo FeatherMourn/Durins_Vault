@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://durins-vault.local/schema/mod/v1",
+  "title": "Durin's Vault mod manifest",
+  "type": "object",
+  "required": ["schema", "id", "name", "version", "game", "requires", "layers"],
+  "properties": {
+    "schema": { "const": "durins-vault.mod/v1" },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "game": {
+      "type": "object",
+      "required": ["id", "engine"],
+      "properties": {
+        "id": { "const": "return-to-moria" },
+        "engine": { "const": "UE4.27" }
+      },
+      "additionalProperties": false
+    },
+    "requires": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "version"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+          "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "layers": {
+      "type": "object",
+      "required": ["runtime", "cooked_content", "data_tables", "research"],
+      "properties": {
+        "runtime": { "$ref": "#/$defs/artifacts" },
+        "cooked_content": { "$ref": "#/$defs/artifacts" },
+        "data_tables": { "$ref": "#/$defs/artifacts" },
+        "research": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "destination"],
+        "properties": {
+          "source": { "type": "string", "minLength": 1 },
+          "destination": { "type": "string", "minLength": 1 },
+          "load_order": { "type": "integer" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
