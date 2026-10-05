@@ -27,6 +27,8 @@
     "fmodel": "I:/My Drive/Mines of Moria Mods/tools/FModel/app/FModel.exe",
     "retoc": "I:/My Drive/Mines of Moria Mods/tools/retoc/app/retoc.exe",
     "uassetgui": "I:/My Drive/Mines of Moria Mods/tools/UAssetGUI/UAssetGUI.exe",
+    "unreal_editor": "H:/EpicLibrary/UE_4.27/Engine/Binaries/Win64/UE4Editor.exe",
+    "unreal_build_tool": "H:/EpicLibrary/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe",
     "unreal_mapping": null
   },
   "modules": [
