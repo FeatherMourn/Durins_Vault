@@ -35,5 +35,20 @@ foreach ($layerName in @('runtime', 'cooked_content', 'data_tables')) {
 New-Item -ItemType Directory -Path (Split-Path -Parent $outputPath) -Force | Out-Null
 if (Test-Path -LiteralPath $outputPath) { Remove-Item -LiteralPath $outputPath -Force }
 Compress-Archive -LiteralPath $stageRoot -DestinationPath $outputPath -CompressionLevel Optimal
+$expected = @('mod.json')
+foreach ($layerName in @('runtime', 'cooked_content', 'data_tables')) {
+    foreach ($artifact in @($mod.layers.$layerName)) {
+        if ($artifact) { $expected += $artifact.source.Replace('/', '\') }
+    }
+}
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+$archive = [IO.Compression.ZipFile]::OpenRead($outputPath)
+try {
+    $entries = @($archive.Entries | ForEach-Object { $_.FullName })
+    foreach ($relative in $expected) {
+        $entryName = ($mod.id + '/' + $relative).Replace('\', '/')
+        if ($entries -notcontains $entryName) { throw "Package is missing declared entry: $relative" }
+    }
+} finally { $archive.Dispose() }
 Remove-Item -LiteralPath $stageRoot -Recurse -Force
 [pscustomobject]@{ Package = $outputPath; Mod = $mod.id; Artifacts = $copied.Count; Status = 'PACKAGED' } | Format-List
