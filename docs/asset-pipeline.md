@@ -67,3 +67,11 @@ The DataTable index is generated with
 reader cannot be used here because the game container does not expose a
 separate `AssetRegistry.bin`; the package manifest is the current authoritative
 path-level evidence.
+
+## Metadata export contract
+
+When FModel or another reader produces a property export, record the verified
+metadata using [asset-export.schema.json](../data/research/asset-export.schema.json).
+The contract requires the game asset path, asset kind, reader and version, source
+container, and export date. It permits reader-specific properties and DataTable
+rows while keeping the original cooked asset outside the repository.
