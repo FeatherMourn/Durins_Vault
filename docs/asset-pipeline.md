@@ -54,3 +54,9 @@ It records package paths only. The first scan identified 5,208 construction-
 related names using a broad search; the generator narrows this to the
 `/Game/Art/Assets/Blockout/SM_AR_...` floor, foundation, stair, and wall
 families that are useful for building research.
+
+The first DataTable candidates are recorded in
+[building-datatables.json](../data/research/building-datatables.json). The
+IoStore index confirms the package paths for construction recipes, all recipes,
+item recipes, and recipe bundles. Their row schemas remain unverified until a
+reader exports properties; the catalog intentionally does not guess them.

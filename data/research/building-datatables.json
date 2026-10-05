@@ -1,0 +1,32 @@
+{
+  "schema": "durins-vault.research-datatables/v1",
+  "game": "return-to-moria",
+  "source": {
+    "container": "Moria-WindowsNoEditor.utoc",
+    "tool": "retoc_cli 0.1.5",
+    "total_package_entries": 58549
+  },
+  "assets": [
+    {
+      "role": "construction-recipes",
+      "path": "/Game/Tech/Data/Building/DT_ConstructionRecipes",
+      "status": "package-indexed"
+    },
+    {
+      "role": "all-recipes",
+      "path": "/Game/Tech/Data/Discovery/DT_AllRecipes",
+      "status": "package-indexed"
+    },
+    {
+      "role": "item-recipes",
+      "path": "/Game/Tech/Data/Items/DT_ItemRecipes",
+      "status": "package-indexed"
+    },
+    {
+      "role": "recipe-bundles",
+      "path": "/Game/Tech/Data/Economy/DT_RecipeBundles",
+      "status": "package-indexed"
+    }
+  ],
+  "next_step": "Export properties with FModel or an equivalent reader; do not infer row schemas from package names alone."
+}
