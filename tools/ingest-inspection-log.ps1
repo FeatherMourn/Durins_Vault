@@ -16,8 +16,10 @@ foreach ($line in Get-Content -LiteralPath $logPath -Encoding UTF8) {
     $records.Add([ordered]@{
         actor_full_name = $hit.actor_full_name
         class_full_name = $hit.class_full_name
+        component_full_name = $hit.component_full_name
+        component_class_full_name = $hit.component_class_full_name
         timestamp = $hit.timestamp
-        source = 'DurinsVaultInspectorLua'
+        source = 'DurinsVaultInspectorNative'
     })
 }
 $catalog = [ordered]@{
