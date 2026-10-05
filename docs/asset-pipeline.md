@@ -60,3 +60,10 @@ The first DataTable candidates are recorded in
 IoStore index confirms the package paths for construction recipes, all recipes,
 item recipes, and recipe bundles. Their row schemas remain unverified until a
 reader exports properties; the catalog intentionally does not guess them.
+
+The DataTable index is generated with
+`tools/generate-datatable-index.ps1` and checked with
+`tools/validate-building-datatables.ps1`. retoc's standalone asset-registry
+reader cannot be used here because the game container does not expose a
+separate `AssetRegistry.bin`; the package manifest is the current authoritative
+path-level evidence.

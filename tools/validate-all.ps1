@@ -22,6 +22,12 @@ $results += [pscustomobject]@{ Check = 'IoStore building index'; Status = 'OK'; 
 & powershell -ExecutionPolicy Bypass -File '.\tools\validate-building-assets.ps1'
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 $results += [pscustomobject]@{ Check = 'IoStore building asset catalog'; Status = 'OK'; ExitCode = 0 }
+& powershell -ExecutionPolicy Bypass -File '.\tools\generate-datatable-index.ps1'
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+$results += [pscustomobject]@{ Check = 'IoStore DataTable index'; Status = 'OK'; ExitCode = 0 }
+& powershell -ExecutionPolicy Bypass -File '.\tools\validate-building-datatables.ps1'
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+$results += [pscustomobject]@{ Check = 'Building DataTable catalog'; Status = 'OK'; ExitCode = 0 }
 
 Write-Output ''
 Write-Output 'Durin''s Vault validation summary'
