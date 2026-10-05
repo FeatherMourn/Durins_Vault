@@ -12,3 +12,7 @@ Run `tools/check-native-build.ps1` before configuring CMake. The currently
 installed UE4SS developer archive contains runtime binaries but not the SDK
 headers required by this source tree, so the native module is intentionally not
 claimed to be buildable until those headers are supplied.
+
+Native inspection exports are stored as discovery records under
+`data/discoveries` and checked with `tools/validate-discovery.ps1` before they
+are promoted into building-piece or mod-definition data.

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://durins-vault.local/schema/discovery/v1",
+  "title": "Durin's Vault native inspection discovery",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["display_name", "buildable", "recipe_id", "class", "instance_name", "level_path", "captured_with", "captured_on"],
+  "properties": {
+    "display_name": { "type": "string", "minLength": 1 },
+    "buildable": { "type": "boolean" },
+    "recipe_id": { "type": "string", "minLength": 1 },
+    "class": { "type": "string", "minLength": 1 },
+    "instance_name": { "type": "string", "minLength": 1 },
+    "level_path": { "type": "string", "pattern": "^/" },
+    "captured_with": { "type": "string", "minLength": 1 },
+    "captured_on": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "properties": { "type": "object" }
+  }
+}
