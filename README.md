@@ -58,3 +58,5 @@ The platform configuration contract is [durins-vault.project.json](durins-vault.
 The mod package contract is documented in [docs/mod-definition.md](docs/mod-definition.md), with a starter package in [mods/example-wall/mod.json](mods/example-wall/mod.json).
 
 Building-piece research is tracked separately in [docs/building-toolkit.md](docs/building-toolkit.md).
+
+Community contribution rules are in [docs/contributing.md](docs/contributing.md).
