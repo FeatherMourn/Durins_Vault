@@ -27,16 +27,19 @@ $backupRoot = Join-Path $projectRoot ("working\backups\deployment\" + $timestamp
 $backedUp = 0
 $copied = 0
 foreach ($entry in $plan) {
-    $destination = [IO.Path]::GetFullPath([string]$entry.Destination)
-    $source = [IO.Path]::GetFullPath([string]$entry.Source)
+    # plan-profile already emits absolute paths; avoid re-normalizing paths
+    # containing the game's Unicode trademark directory name on older Windows
+    # PowerShell/.NET combinations.
+    $destination = [string]$entry.Destination
+    $source = [string]$entry.Source
     if (Test-Path -LiteralPath $destination -PathType Leaf) {
         $relative = $destination.Substring([IO.Path]::GetPathRoot($destination).Length).TrimStart('\', '/')
         $backupPath = Join-Path $backupRoot $relative
-        New-Item -ItemType Directory -Path (Split-Path -Parent $backupPath) -Force | Out-Null
+        [IO.Directory]::CreateDirectory((Split-Path -Parent $backupPath)) | Out-Null
         Copy-Item -LiteralPath $destination -Destination $backupPath
         $backedUp++
     }
-    New-Item -ItemType Directory -Path (Split-Path -Parent $destination) -Force | Out-Null
+    [IO.Directory]::CreateDirectory((Split-Path -Parent $destination)) | Out-Null
     Copy-Item -LiteralPath $source -Destination $destination -Force
     $copied++
 }
