@@ -29,6 +29,19 @@ if ($null -ne $piece.source -and $piece.source.path) {
         if (-not (Test-Path -LiteralPath $resolved -PathType Leaf)) { $errors.Add("source.path does not exist: $sourcePath") }
     }
 }
+if ($piece.blueprint_path) {
+    $manifestPath = Join-Path $projectRoot 'working\iostore-manifest\pakstore.json'
+    if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf)) {
+        $errors.Add('blueprint_path requires a generated IoStore manifest')
+    } else {
+        $manifest = Get-Content -LiteralPath $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $found = $false
+        foreach ($entry in $manifest.oplog.entries) {
+            if ([string]$entry.packagestoreentry.packagename -eq [string]$piece.blueprint_path) { $found = $true; break }
+        }
+        if (-not $found) { $errors.Add("blueprint_path not found in IoStore manifest: $($piece.blueprint_path)") }
+    }
+}
 if ($null -ne $piece.dimensions) {
     foreach ($dimension in @('width', 'height', 'depth')) {
         if ($null -ne $piece.dimensions.$dimension -and [double]$piece.dimensions.$dimension -le 0) {

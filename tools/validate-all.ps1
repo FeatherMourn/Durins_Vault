@@ -13,12 +13,12 @@ $results += [pscustomobject]@{ Check = 'Project environment'; Status = 'OK'; Exi
 & powershell -ExecutionPolicy Bypass -File '.\tools\validate-mod.ps1' -Manifest '.\mods\example-wall\mod.json'
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 $results += [pscustomobject]@{ Check = 'Example mod definition'; Status = 'OK'; ExitCode = 0 }
-& powershell -ExecutionPolicy Bypass -File '.\tools\validate-building-piece.ps1' -Record '.\data\building\crude-wall-3x4-a.json'
-if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-$results += [pscustomobject]@{ Check = 'Crude wall building record'; Status = 'OK'; ExitCode = 0 }
 & powershell -ExecutionPolicy Bypass -File '.\tools\generate-iostore-building-index.ps1'
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 $results += [pscustomobject]@{ Check = 'IoStore building index'; Status = 'OK'; ExitCode = 0 }
+& powershell -ExecutionPolicy Bypass -File '.\tools\validate-building-piece.ps1' -Record '.\data\building\crude-wall-3x4-a.json'
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+$results += [pscustomobject]@{ Check = 'Crude wall building record'; Status = 'OK'; ExitCode = 0 }
 & powershell -ExecutionPolicy Bypass -File '.\tools\validate-building-assets.ps1'
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 $results += [pscustomobject]@{ Check = 'IoStore building asset catalog'; Status = 'OK'; ExitCode = 0 }
