@@ -1,0 +1,23 @@
+{
+  "schema": "durins-vault.datatable-export-summary/v1",
+  "game": "return-to-moria",
+  "asset_path": "/Game/Tech/Data/Building/DT_Constructions",
+  "source": {
+    "reader": "FModel 4.4.4.0",
+    "container": "Moria-WindowsNoEditor.utoc",
+    "exported_on": "2026-10-05",
+    "raw_export": "working/authoring/asset-export-dt-constructions.json"
+  },
+  "verified": {
+    "row_struct": "MorConstructionDefinition",
+    "row_count": 854,
+    "sample_row": {
+      "id": "Crude_Wall",
+      "display_name": "Stone Wall",
+      "actor": "/Game/LevelDesign/Architecture/Suburbs/BP_Crude_Wall_3x4_A.BP_Crude_Wall_3x4_A_C",
+      "enabled_state": "ERowEnabledState::Live",
+      "tag": "UI.Construction.Category.Crude.Walls"
+    }
+  },
+  "evidence_policy": "Summary contains only fields read from the FModel export; it does not claim that editing or adding rows is currently deployable."
+}
