@@ -1,9 +1,8 @@
 # Runtime modules
 
-`DurinsVaultInspector` is the first native UE4SS module. It is intentionally
-small: the initial build only verifies that Durin's Vault can load after Unreal
-reflection initialization. Construction inspection will be added after the
-module build is verified.
+`DurinsVaultInspector` is the first native UE4SS module. It verifies that
+Durin's Vault can load after Unreal reflection initialization and records the
+aimed-at actor, hit component, and reflected property names and offsets.
 
 The module follows the public UE4SS C++ mod shape used by the local
 MoriaAdvancedBuilder reference project. UE4SS itself is not vendored here.

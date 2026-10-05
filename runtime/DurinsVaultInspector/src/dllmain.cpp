@@ -224,7 +224,7 @@ namespace DurinsVault
             ModDescription = STR("Runtime diagnostics for Return to Moria construction objects");
 
             Output::send<LogLevel::Normal>(
-                STR("[DurinsVaultInspector] Loaded. Awaiting construction inspection implementation.\n"));
+                STR("[DurinsVaultInspector] Loaded. Native target inspection is ready.\n"));
         }
 
         ~DurinsVaultInspector() override = default;
