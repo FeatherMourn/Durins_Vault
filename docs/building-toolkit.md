@@ -43,6 +43,28 @@ is not yet a usable replacement for the developer's content-authoring tools.
 The current toolkit stops at evidence-backed records and packaging scaffolds
 until a compatible editor/build environment is available.
 
+## Cooked-content prototype gate
+
+The first deployable prototype is intentionally a reused-mesh variant of the
+verified crude wall. Its acceptance criteria are:
+
+1. create or duplicate a UE4.27 Blueprint package while preserving the
+   construction component structure;
+2. create a matching `MorConstructionDefinition` row and point it at the new
+   Blueprint class;
+3. cook the package for the game's target platform;
+4. package the cooked output without overwriting the base installation;
+5. verify that the new row appears in the construction menu and that the piece
+   can be placed in a disposable test world.
+
+`retoc` is available for IoStore inspection and repacking, but it is not an
+Unreal asset authoring or cooking tool. The current machine has the UE4.27
+source checkout only; no built `UnrealEditor.exe`, `UE4Editor.exe`, or
+`UnrealBuildTool` is present. Until a compatible editor/build environment is
+available, the platform must keep generated records marked `buildable: false`.
+This is a verified environment gate, not a claim that the prototype is
+deployable.
+
 ## Validate a piece
 
 ```powershell

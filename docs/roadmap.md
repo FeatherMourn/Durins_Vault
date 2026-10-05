@@ -67,5 +67,5 @@ content is its first major application, not the entire project.
 - Phase 2: native discovery schema and verified target inspection complete; DataTable and Blueprint discovery remain underway
 - Phase 3: IoStore indexing plus verified Blueprint and construction-DataTable metadata capture complete for the first fixture; broader exports and round-tripping remain underway
 - Phase 4: initial mod-definition schema and review-only deployment planner complete
-- Phase 5: catalog validation, property-index research, and first building/DataTable cross-reference complete; truthful building-piece scaffolding underway
+- Phase 5: catalog validation, property-index research, and first building/DataTable cross-reference complete; the first reused-mesh cooked-content prototype is specified, with authoring/cooking environment still gated on a built UE4.27 editor
 - Phase 6 onward: not started
