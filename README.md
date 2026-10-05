@@ -43,6 +43,16 @@ To apply a reviewed plan, explicitly provide both `-Apply` and
 `-ConfirmApply`. Existing destination files are copied to a timestamped backup
 under `working/backups/deployment` before replacement.
 
+Backups can be reviewed or restored with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\restore-deployment.ps1 `
+  -BackupRoot .\working\backups\deployment\<timestamp> `
+  -DestinationRoot 'H:\SteamLibrary\steamapps\common\The Lord of the Rings Return to Moria™\Moria'
+```
+
+Restoration is also dry-run by default and requires `-Apply -ConfirmApply`.
+
 The platform configuration contract is [durins-vault.project.json](durins-vault.project.json).
 
 The mod package contract is documented in [docs/mod-definition.md](docs/mod-definition.md), with a starter package in [mods/example-wall/mod.json](mods/example-wall/mod.json).
