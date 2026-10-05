@@ -75,3 +75,11 @@ metadata using [asset-export.schema.json](../data/research/asset-export.schema.j
 The contract requires the game asset path, asset kind, reader and version, source
 container, and export date. It permits reader-specific properties and DataTable
 rows while keeping the original cooked asset outside the repository.
+
+Validate an export against the package manifest with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\validate-asset-export.ps1 `
+  -Export .\working\authoring\asset-export.json `
+  -Index .\working\iostore-manifest\pakstore.json
+```
