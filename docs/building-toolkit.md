@@ -34,6 +34,15 @@ This gives the eventual building editor a truthful workflow:
 4. generate a new content definition;
 5. package and test it in an isolated profile.
 
+## Current authoring boundary
+
+The local `tools/UnrealEngine-4.27` checkout is source-only. It does not
+contain `UnrealEditor.exe`, `UE4Editor.exe`, or a built UnrealBuildTool. It is
+therefore useful as a reference for engine version and source research, but it
+is not yet a usable replacement for the developer's content-authoring tools.
+The current toolkit stops at evidence-backed records and packaging scaffolds
+until a compatible editor/build environment is available.
+
 ## Validate a piece
 
 ```powershell
