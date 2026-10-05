@@ -10,6 +10,10 @@ records, and protect the active UE4SS profile before deployment work begins.
 
 See [docs/setup.md](docs/setup.md) for local setup and validation, and [docs/roadmap.md](docs/roadmap.md) for the staged plan.
 
+The main helper accepts `status`, `validate`, `plan`, and `research` commands.
+Use `research` after ingesting a native inspection catalog to regenerate the
+construction-property index.
+
 The consolidated entry point is `tools/durins-vault.ps1`:
 
 ```powershell

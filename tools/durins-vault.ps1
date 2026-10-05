@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('status', 'validate', 'plan')]
+    [ValidateSet('status', 'validate', 'plan', 'research')]
     [string]$Command = 'status',
     [string]$Profile = 'steam-local'
 )
@@ -25,6 +25,14 @@ try {
             & powershell -ExecutionPolicy Bypass -File '.\tools\plan-profile.ps1' `
                 -ModsRoot '.\mods' `
                 -JsonOutput '.\working\reports\profile-plan.json'
+            exit $LASTEXITCODE
+        }
+        'research' {
+            if (-not (Test-Path -LiteralPath '.\working\reports\runtime-inspection-catalog.json' -PathType Leaf)) {
+                Write-Output 'No runtime inspection catalog is available yet. Run a native in-game inspection first.'
+                exit 0
+            }
+            & powershell -ExecutionPolicy Bypass -File '.\tools\summarize-construction-properties.ps1'
             exit $LASTEXITCODE
         }
     }
