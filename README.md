@@ -4,7 +4,9 @@ Development workspace for a reusable Return to Moria modding platform. Building-
 
 ## Current milestone
 
-Build a UE4SS diagnostic inspector that can identify an existing building piece and record its recipe, Blueprint, asset, snap, and stability data.
+Establish a reproducible research-to-content pipeline: inspect existing pieces
+with native UE4SS tooling, index IoStore building assets, validate catalog
+records, and protect the active UE4SS profile before deployment work begins.
 
 See [docs/setup.md](docs/setup.md) for local setup and validation, and [docs/roadmap.md](docs/roadmap.md) for the staged plan.
 
