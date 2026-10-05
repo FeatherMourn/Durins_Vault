@@ -7,6 +7,11 @@
 #include <Unreal/FWeakObjectPtr.hpp>
 
 #include <cstring>
+#include <chrono>
+#include <filesystem>
+#include <fstream>
+#include <iomanip>
+#include <sstream>
 #include <vector>
 
 namespace DurinsVault
@@ -50,6 +55,52 @@ namespace DurinsVault
 
         TraceOffsets m_trace{};
         DeprojectOffsets m_deproject{};
+
+        static auto jsonAscii(std::wstring_view value) -> std::string
+        {
+            std::string result;
+            result.reserve(value.size());
+            for (wchar_t character : value)
+            {
+                switch (character)
+                {
+                case L'\\': result += "\\\\"; break;
+                case L'"': result += "\\\""; break;
+                case L'\n': result += "\\n"; break;
+                case L'\r': result += "\\r"; break;
+                case L'\t': result += "\\t"; break;
+                default: result += character >= 0x20 && character < 0x7f ? static_cast<char>(character) : '?'; break;
+                }
+            }
+            return result;
+        }
+
+        static auto utcTimestamp() -> std::string
+        {
+            const auto now = std::chrono::system_clock::now();
+            const auto time = std::chrono::system_clock::to_time_t(now);
+            std::tm utc{};
+            gmtime_s(&utc, &time);
+            std::ostringstream stream;
+            stream << std::put_time(&utc, "%Y-%m-%dT%H:%M:%SZ");
+            return stream.str();
+        }
+
+        static auto writeInspectionRecord(RC::Unreal::UObject* actor, RC::Unreal::UObject* component) -> void
+        {
+            if (!actor || !actor->GetClassPrivate()) return;
+            std::filesystem::create_directories("Mods/DurinsVaultInspector");
+            std::ofstream output("Mods/DurinsVaultInspector/inspection.jsonl", std::ios::app);
+            if (!output) return;
+            output << "{\"timestamp\":\"" << utcTimestamp()
+                   << "\",\"actor_full_name\":\"" << jsonAscii(actor->GetFullName())
+                   << "\",\"class_full_name\":\"" << jsonAscii(actor->GetClassPrivate()->GetName()) << "\"";
+            if (component && component->GetClassPrivate())
+                output << ",\"component_full_name\":\"" << jsonAscii(component->GetFullName())
+                       << "\",\"component_class_full_name\":\""
+                       << jsonAscii(component->GetClassPrivate()->GetName()) << "\"";
+            output << "}\n";
+        }
 
         static auto findPropertyOffset(RC::Unreal::UFunction* function, const wchar_t* name) -> int
         {
@@ -149,6 +200,7 @@ namespace DurinsVault
                 Output::send<LogLevel::Normal>(STR("[DurinsVaultInspector] F3 hit component: {} | class: {}\n"),
                     hitComponent->GetFullName(), hitComponent->GetClassPrivate()->GetName());
             }
+            writeInspectionRecord(hitActor, hitComponent);
         }
 
     public:
