@@ -83,6 +83,22 @@ inspection and asset evidence have been attached. This makes the authoring
 workflow usable now while preventing an incomplete record from being mistaken
 for a deployable custom building piece.
 
+## Promote verified evidence
+
+Once a Blueprint summary and a matching construction-table summary exist, join
+them into a validated research record:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\promote-building-piece.ps1 `
+  -BlueprintSummary .\data\research\crude-wall-blueprint-export.json `
+  -DataTableSummary .\data\research\construction-datatable-export.json `
+  -Output .\working\authoring\crude-wall-promoted.json
+```
+
+Promotion intentionally leaves `buildable: false`; it organizes verified
+evidence but does not claim that a new cooked asset or runtime-created piece is
+deployable.
+
 ## Summarize observed construction properties
 
 After ingesting native inspection records, generate a grouped property index:
