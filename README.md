@@ -32,6 +32,17 @@ powershell -ExecutionPolicy Bypass -File .\tools\package-mod.ps1 `
 Packaging includes the manifest and only its declared artifacts; it never
 copies files into the game directory.
 
+Deployment is guarded and dry-run by default:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\deploy-profile.ps1 `
+  -ModsRoot .\mods -ModId durins-vault.example-wall
+```
+
+To apply a reviewed plan, explicitly provide both `-Apply` and
+`-ConfirmApply`. Existing destination files are copied to a timestamped backup
+under `working/backups/deployment` before replacement.
+
 The platform configuration contract is [durins-vault.project.json](durins-vault.project.json).
 
 The mod package contract is documented in [docs/mod-definition.md](docs/mod-definition.md), with a starter package in [mods/example-wall/mod.json](mods/example-wall/mod.json).
