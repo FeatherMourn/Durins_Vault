@@ -1,0 +1,10 @@
+{
+  "display_name": "Stone Wall",
+  "buildable": true,
+  "recipe_id": "Crude_Wall",
+  "class": "BP_Crude_Wall_3x4_A_C",
+  "instance_name": "BP_Crude_Wall_3x4_A_C_2147432961",
+  "level_path": "/Game/Maps/Chapter2/Cell_2_16_11_1.BB_Chapter2_DoorsOfDurin:PersistentLevel.BP_Crude_Wall_3x4_A_C_2147432961",
+  "captured_with": "MoriaAdvancedBuilder 8.7.1 target inspection",
+  "captured_on": "2026-10-05"
+}

@@ -12,8 +12,7 @@ out/
 *.lib
 *.obj
 
-# Generated diagnostic data
-data/discoveries/*.json
+# Generated diagnostic logs; verified discovery records are source data.
 data/discoveries/*.log
 
 # IDE/user files
