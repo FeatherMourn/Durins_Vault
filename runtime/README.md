@@ -29,3 +29,13 @@ After an in-game F3 inspection, validate the log before using it as research:
 powershell -ExecutionPolicy Bypass -File .\tools\validate-inspection-log.ps1 `
   -Log 'H:\SteamLibrary\steamapps\common\The Lord of the Rings Return to Moria™\Moria\Saved\DurinsVault\inspections.jsonl'
 ```
+
+After validation, ingest the log into an ignored research catalog:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\ingest-inspection-log.ps1 `
+  -Log 'H:\SteamLibrary\steamapps\common\The Lord of the Rings Return to Moria™\Moria\Saved\DurinsVault\inspections.jsonl'
+```
+
+The catalog intentionally does not claim recipe, buildability, or asset data;
+those fields require separate evidence.
