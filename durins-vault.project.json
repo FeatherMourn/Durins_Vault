@@ -26,7 +26,7 @@
   "tools": {
     "fmodel": "I:/My Drive/Mines of Moria Mods/tools/FModel/app/FModel.exe",
     "retoc": "I:/My Drive/Mines of Moria Mods/tools/retoc/app/retoc.exe",
-    "uassetgui": null,
+    "uassetgui": "I:/My Drive/Mines of Moria Mods/tools/UAssetGUI/UAssetGUI.exe",
     "unreal_mapping": null
   },
   "modules": [

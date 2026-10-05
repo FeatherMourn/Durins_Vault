@@ -31,6 +31,11 @@ read the installed `global.utoc` container. Its reported container has three
 chunks and zero packages; the main game container remains the next target for
 inspection.
 
+UAssetGUI's current experimental build is installed at
+`I:/My Drive/Mines of Moria Mods/tools/UAssetGUI/UAssetGUI.exe`. It is reserved
+for examining exported `.uasset` properties after retoc or FModel produces a
+working asset file; it is not pointed at the original IoStore container.
+
 The next pipeline task is to configure FModel against the game archives, then
 export one small, versioned metadata fixture—preferably a building-related
 Blueprint or DataTable—without committing the original binary asset.
