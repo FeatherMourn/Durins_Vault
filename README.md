@@ -48,7 +48,7 @@ Backups can be reviewed or restored with:
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\tools\restore-deployment.ps1 `
   -BackupRoot .\working\backups\deployment\<timestamp> `
-  -DestinationRoot 'H:\SteamLibrary\steamapps\common\The Lord of the Rings Return to Moria™\Moria'
+  -DestinationRoot 'H:\'
 ```
 
 Restoration is also dry-run by default and requires `-Apply -ConfirmApply`.
