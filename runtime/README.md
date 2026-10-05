@@ -18,7 +18,7 @@ Native inspection exports are stored as discovery records under
 are promoted into building-piece or mod-definition data.
 
 The Lua inspector also appends structured hit records to
-`Moria/Saved/DurinsVault/inspections.jsonl`. Each line contains an ISO-8601 UTC
+`Moria/Saved/DurinsVault-inspections.jsonl`. Each line contains an ISO-8601 UTC
 timestamp, the target actor full name, and its class full name. This file is a
 runtime evidence handoff; it is not automatically committed to the repository
 because it is generated from the user's game session.
@@ -27,14 +27,14 @@ After an in-game F3 inspection, validate the log before using it as research:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\tools\validate-inspection-log.ps1 `
-  -Log 'H:\SteamLibrary\steamapps\common\The Lord of the Rings Return to Moria™\Moria\Saved\DurinsVault\inspections.jsonl'
+  -Log 'H:\SteamLibrary\steamapps\common\The Lord of the Rings Return to Moria™\Moria\Saved\DurinsVault-inspections.jsonl'
 ```
 
 After validation, ingest the log into an ignored research catalog:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\tools\ingest-inspection-log.ps1 `
-  -Log 'H:\SteamLibrary\steamapps\common\The Lord of the Rings Return to Moria™\Moria\Saved\DurinsVault\inspections.jsonl'
+  -Log 'H:\SteamLibrary\steamapps\common\The Lord of the Rings Return to Moria™\Moria\Saved\DurinsVault-inspections.jsonl'
 ```
 
 The catalog intentionally does not claim recipe, buildability, or asset data;

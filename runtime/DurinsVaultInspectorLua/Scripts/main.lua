@@ -4,7 +4,7 @@ local GetKismetSystemLibrary = UEHelpers.GetKismetSystemLibrary
 local GetKismetMathLibrary = UEHelpers.GetKismetMathLibrary
 local GetPlayerController = UEHelpers.GetPlayerController
 
-local INSPECTION_LOG = "Moria/Saved/DurinsVault/inspections.jsonl"
+local INSPECTION_LOG = "Moria/Saved/DurinsVault-inspections.jsonl"
 
 local function json_escape(value)
     value = tostring(value or "")
@@ -16,8 +16,6 @@ local function json_escape(value)
 end
 
 local function record_inspection(actor, class_name)
-    local directory = "Moria/Saved/DurinsVault"
-    os.execute('mkdir "' .. directory .. '" 2>nul')
     local file = io.open(INSPECTION_LOG, "a")
     if not file then
         print("[DurinsVaultInspector] Could not open structured inspection log.\n")
