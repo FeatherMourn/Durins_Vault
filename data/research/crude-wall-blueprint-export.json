@@ -1,0 +1,25 @@
+{
+  "schema": "durins-vault.asset-export-summary/v1",
+  "game": "return-to-moria",
+  "asset_path": "/Game/LevelDesign/Architecture/Suburbs/BP_Crude_Wall_3x4_A",
+  "asset_kind": "blueprint",
+  "source": {
+    "reader": "FModel 4.4.4.0",
+    "container": "Moria-WindowsNoEditor.utoc",
+    "exported_on": "2026-10-05",
+    "raw_export": "working/authoring/asset-export-crude-wall.json"
+  },
+  "verified": {
+    "blueprint_class": "BP_Crude_Wall_3x4_A_C",
+    "super_class": "BP_BaseArchitectureBreakable_C",
+    "breakable_properties_row": "Player_Architecture_Crude_Stone",
+    "max_health": 100.0,
+    "destruct_impulse_force": 3000.0,
+    "snap_component_class": "MorConstructionSnapComponent",
+    "snap_rule": "ESnapPointPlacement::Odd",
+    "stability_row": "Crude",
+    "snap_box_extent": { "x": 0.0, "y": 150.0, "z": 200.0 },
+    "mesh_piece_count": 2
+  },
+  "evidence_policy": "Summary contains only fields read from the FModel export; it does not claim deployability or infer dimensions from box extents."
+}
