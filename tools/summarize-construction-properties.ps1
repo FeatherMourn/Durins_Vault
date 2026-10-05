@@ -26,8 +26,8 @@ foreach ($record in @($catalog.records)) {
         if ([string]$record.timestamp -gt [string]$entry.last_seen) { $entry.last_seen = [string]$record.timestamp }
     }
 }
-$classes = foreach ($className in ($groups.Keys | Sort-Object)) {
-    [ordered]@{ class_full_name = $className; properties = @($groups[$className].Values | Sort-Object name, offset) }
+$classes = foreach ($group in ($groups.GetEnumerator() | Sort-Object Key)) {
+    [ordered]@{ class_full_name = [string]$group.Key; properties = @($group.Value.GetEnumerator() | ForEach-Object { $_.Value } | Sort-Object name, offset) }
 }
 $report = [ordered]@{
     schema = 'durins-vault.construction-properties/v1'
