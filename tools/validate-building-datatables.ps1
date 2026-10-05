@@ -10,8 +10,4 @@ $known = @{}
 foreach ($asset in @($index.assets)) { $known[[string]$asset.path] = $true }
 $missing = @($catalog.assets | Where-Object { -not $known.ContainsKey([string]$_.path) })
 if ($missing.Count -gt 0) { Write-Error (($missing | ForEach-Object { "Missing DataTable from index: $($_.path)" }) -join [Environment]::NewLine); exit 2 }
-$catalogCount = 0
-foreach ($item in $catalog.assets) { $catalogCount++ }
-$indexCount = 0
-foreach ($item in $index.assets) { $indexCount++ }
-[pscustomobject]@{ CatalogAssets = $catalogCount; IndexedDataTables = $indexCount; Status = 'OK' } | Format-List
+[pscustomobject]@{ Catalog = $Catalog; IoStoreIndex = $Index; Status = 'OK'; Verified = 'All catalog paths present' } | Format-List
