@@ -38,3 +38,8 @@ cmake -S .\runtime -B .\working\build\native `
   -DUE4SS_SOURCE='I:\My Drive\Mines of Moria Mods\work\reference\MoriaAdvancedBuilder\RE-UE4SS'
 cmake --build .\working\build\native --config Release --target DurinsVaultInspector
 ```
+
+The UE4SS reference currently uses the `Game__Shipping__Win64` configuration.
+The resulting module is deployed as `ue4ss/Mods/DurinsVaultInspector/dlls/main.dll`.
+After launching a world, press `F3` while aiming at an object. The native
+inspector logs the hit actor and component full names to `UE4SS.log`.
