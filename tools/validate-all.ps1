@@ -13,6 +13,9 @@ $results += [pscustomobject]@{ Check = 'Project environment'; Status = 'OK'; Exi
 & powershell -ExecutionPolicy Bypass -File '.\tools\validate-mod.ps1' -Manifest '.\mods\example-wall\mod.json'
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 $results += [pscustomobject]@{ Check = 'Example mod definition'; Status = 'OK'; ExitCode = 0 }
+& powershell -ExecutionPolicy Bypass -File '.\tools\validate-mod-set.ps1' -ModsRoot '.\mods'
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+$results += [pscustomobject]@{ Check = 'Mod set'; Status = 'OK'; ExitCode = 0 }
 & powershell -ExecutionPolicy Bypass -File '.\tools\validate-discovery.ps1' -Discovery '.\data\discoveries\crude_wall_3x4_a.json'
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 $results += [pscustomobject]@{ Check = 'Native discovery record'; Status = 'OK'; ExitCode = 0 }

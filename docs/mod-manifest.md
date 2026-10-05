@@ -23,3 +23,13 @@ Validate an example manifest from the repository root:
 powershell -ExecutionPolicy Bypass -File .\tools\validate-mod.ps1 `
   -Manifest .\mods\example-wall\mod.json
 ```
+
+Validate the complete local mod set before creating a profile or deployment plan:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\\tools\\validate-mod-set.ps1 `
+  -ModsRoot .\\mods
+```
+
+The mod-set check rejects duplicate IDs, unavailable dependencies, and cyclic
+dependency graphs. It does not install dependencies or modify the game.
