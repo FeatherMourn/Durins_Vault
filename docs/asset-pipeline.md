@@ -34,3 +34,18 @@ inspection.
 The next pipeline task is to configure FModel against the game archives, then
 export one small, versioned metadata fixture—preferably a building-related
 Blueprint or DataTable—without committing the original binary asset.
+
+## Generate a building asset index
+
+The main IoStore directory can already be indexed without extracting or
+redistributing game files:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\generate-iostore-building-index.ps1
+```
+
+The generated report is placed under `working/reports` and is ignored by Git.
+It records package paths only. The first scan identified 5,208 construction-
+related names using a broad search; the generator narrows this to the
+`/Game/Art/Assets/Blockout/SM_AR_...` floor, foundation, stair, and wall
+families that are useful for building research.
