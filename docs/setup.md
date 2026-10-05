@@ -90,9 +90,10 @@ Run the aggregate health check from the project root:
 powershell -ExecutionPolicy Bypass -File .\tools\validate-all.ps1
 ```
 
-This runs the environment, example mod-definition, and building-record checks
-as one gate. A nonzero result means the workspace is not ready for the next
-pipeline step.
+This runs the environment, example mod-definition, building-record, and
+IoStore-backed catalog checks as one gate. It regenerates the ignored IoStore
+index automatically, so a fresh clone can run the same command. A nonzero
+result means the workspace is not ready for the next pipeline step.
 
 ## Optional Unreal source access
 
