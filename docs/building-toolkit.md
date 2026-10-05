@@ -10,8 +10,9 @@ The record format is defined by
 The first catalog entry is [crude-wall-3x4-a.json](../data/building/crude-wall-3x4-a.json).
 It was captured through the native MoriaAdvancedBuilder target inspector and
 records a buildable Blueprint class and recipe identifier. Mesh, material, snap,
-stability, and asset-path fields remain explicitly unknown instead of being
-guessed.
+stability, and dimensions remain explicitly unknown instead of being guessed.
+The Blueprint package path is now confirmed separately by the IoStore manifest:
+`/Game/LevelDesign/Architecture/Suburbs/BP_Crude_Wall_3x4_A`.
 
 The first asset-family fixture is
 [blockout-asset-families.json](../data/building/blockout-asset-families.json).

@@ -3,7 +3,7 @@
   "id": "moria.crude-wall-3x4-a",
   "display_name": "Stone Wall",
   "blueprint_class": "BP_Crude_Wall_3x4_A_C",
-  "blueprint_path": null,
+  "blueprint_path": "/Game/LevelDesign/Architecture/Suburbs/BP_Crude_Wall_3x4_A",
   "recipe_id": "Crude_Wall",
   "buildable": true,
   "dimensions": null,
