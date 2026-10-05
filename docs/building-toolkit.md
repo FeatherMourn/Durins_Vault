@@ -82,3 +82,15 @@ Scaffolds are marked `buildable: false` and use manual provenance until native
 inspection and asset evidence have been attached. This makes the authoring
 workflow usable now while preventing an incomplete record from being mistaken
 for a deployable custom building piece.
+
+## Summarize observed construction properties
+
+After ingesting native inspection records, generate a grouped property index:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\summarize-construction-properties.ps1
+```
+
+The report records only actor classes, property names, offsets, and observation
+timestamps. It deliberately does not infer property types, values, recipes, or
+buildability; those claims require separate verified runtime or asset evidence.
