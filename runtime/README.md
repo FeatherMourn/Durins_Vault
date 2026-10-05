@@ -16,3 +16,9 @@ claimed to be buildable until those headers are supplied.
 Native inspection exports are stored as discovery records under
 `data/discoveries` and checked with `tools/validate-discovery.ps1` before they
 are promoted into building-piece or mod-definition data.
+
+The Lua inspector also appends structured hit records to
+`Moria/Saved/DurinsVault/inspections.jsonl`. Each line contains an ISO-8601 UTC
+timestamp, the target actor full name, and its class full name. This file is a
+runtime evidence handoff; it is not automatically committed to the repository
+because it is generated from the user's game session.
