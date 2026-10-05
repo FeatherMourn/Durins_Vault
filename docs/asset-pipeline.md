@@ -23,9 +23,14 @@ The Steam installation has:
 - `global.ucas`
 - `global.utoc`
 
-FModel is now installed in the external tool cache at
+FModel is installed in the external tool cache at
 `I:/My Drive/Mines of Moria Mods/tools/FModel/app/FModel.exe` and recorded in
-the project manifest. The next pipeline task is to configure it against those
-files, then export one small, versioned metadata fixture—preferably a
-building-related Blueprint or DataTable—without committing the original binary
-asset.
+the project manifest. retoc `v0.1.5` is also installed at
+`I:/My Drive/Mines of Moria Mods/tools/retoc/app/retoc.exe` and successfully
+read the installed `global.utoc` container. Its reported container has three
+chunks and zero packages; the main game container remains the next target for
+inspection.
+
+The next pipeline task is to configure FModel against the game archives, then
+export one small, versioned metadata fixture—preferably a building-related
+Blueprint or DataTable—without committing the original binary asset.
