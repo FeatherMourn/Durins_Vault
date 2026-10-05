@@ -1,0 +1,22 @@
+{
+  "schema": "durins-vault.cooked-prototype/v1",
+  "id": "durins-vault.crude-wall-variant",
+  "source_piece": "data/building/crude-wall-3x4-a.json",
+  "target": {
+    "blueprint_package": "/Game/DurinsVault/Building/BP_Crude_Wall_Variant",
+    "blueprint_class": "BP_Crude_Wall_Variant_C",
+    "reuse_mesh": true
+  },
+  "recipe": {
+    "row_name": "DurinsVault_Crude_Wall_Variant",
+    "display_name": "Durin's Vault Wall Variant",
+    "datatable": "/Game/Tech/Data/Building/DT_Constructions"
+  },
+  "acceptance": [
+    "Blueprint package cooks for the game's UE4.27 target",
+    "Construction DataTable row resolves to the new Blueprint class",
+    "Cooked output is packaged separately from the base installation",
+    "Recipe appears in the construction menu in a disposable test world",
+    "Piece can be placed and survives save and reload"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://durins-vault.local/schema/cooked-prototype/v1",
+  "title": "Durin's Vault cooked building prototype",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "source_piece", "target", "recipe", "acceptance"],
+  "properties": {
+    "schema": { "const": "durins-vault.cooked-prototype/v1" },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+    "source_piece": { "type": "string", "minLength": 1 },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["blueprint_package", "blueprint_class"],
+      "properties": {
+        "blueprint_package": { "type": "string", "pattern": "^/Game/" },
+        "blueprint_class": { "type": "string", "minLength": 1 },
+        "reuse_mesh": { "type": "boolean" }
+      }
+    },
+    "recipe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["row_name", "display_name"],
+      "properties": {
+        "row_name": { "type": "string", "minLength": 1 },
+        "display_name": { "type": "string", "minLength": 1 },
+        "datatable": { "type": "string", "pattern": "^/Game/" }
+      }
+    },
+    "acceptance": {
+      "type": "array",
+      "minItems": 5,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

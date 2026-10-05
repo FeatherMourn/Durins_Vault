@@ -65,6 +65,19 @@ available, the platform must keep generated records marked `buildable: false`.
 This is a verified environment gate, not a claim that the prototype is
 deployable.
 
+The first prototype is described by
+`data/building/crude-wall-variant-prototype.json` and checked before authoring
+with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\validate-cooked-prototype.ps1 `
+  -Manifest .\data\building\crude-wall-variant-prototype.json
+```
+
+The manifest is an authoring handoff, not cooked content. It remains
+`buildable: false` until the Blueprint is cooked and the construction-menu,
+placement, and save/reload checks pass in-game.
+
 ## Validate a piece
 
 ```powershell
