@@ -1,0 +1,46 @@
+{
+  "schema": "durins-vault.research-construction-reflection/v1",
+  "source_project": "MoriaAdvancedBuilder",
+  "source_files": [
+    "docs/dllmain.md",
+    "MyCPPMods/MoriaCppMod/src/moria_hism.inl",
+    "MyCPPMods/MoriaCppMod/src/moria_datatable.inl",
+    "MyCPPMods/MoriaCppMod/src/moria_DefinitionProcessing.inl"
+  ],
+  "supported_property_hints": [
+    {
+      "name": "MorConstructionSnap",
+      "meaning": "Construction actor exposes snap behavior",
+      "confidence": "research-backed"
+    },
+    {
+      "name": "MorConstructionStability",
+      "meaning": "Construction actor exposes stability behavior",
+      "confidence": "research-backed"
+    },
+    {
+      "name": "MorConstructionPermit",
+      "meaning": "Construction actor exposes placement/build permit behavior",
+      "confidence": "research-backed"
+    }
+  ],
+  "datatable_hints": [
+    {
+      "path": "/Game/Tech/Data/Building/DT_Constructions",
+      "role": "construction definitions",
+      "confidence": "research-backed"
+    },
+    {
+      "path": "/Game/Tech/Data/Building/DT_ConstructionRecipes",
+      "field": "ResultConstructionHandle",
+      "role": "recipe-to-construction link",
+      "confidence": "research-backed"
+    }
+  ],
+  "unknowns": [
+    "Concrete property offsets for the current game build",
+    "Serialized row layout and exact field types",
+    "Snap-point contents for BP_Crude_Wall_3x4_A_C",
+    "Stability values for BP_Crude_Wall_3x4_A_C"
+  ]
+}

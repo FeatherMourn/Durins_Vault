@@ -8,6 +8,11 @@
   },
   "assets": [
     {
+      "role": "construction-definitions",
+      "path": "/Game/Tech/Data/Building/DT_Constructions",
+      "status": "package-indexed"
+    },
+    {
       "role": "construction-recipes",
       "path": "/Game/Tech/Data/Building/DT_ConstructionRecipes",
       "status": "package-indexed"

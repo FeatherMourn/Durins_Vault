@@ -20,6 +20,12 @@ It records twelve representative floor, foundation, stair, and wall paths
 found in the main IoStore container. These are references only; no game asset
 binary is bundled.
 
+The research-backed construction field and DataTable hints are recorded in
+[construction-reflection.json](../data/research/construction-reflection.json).
+These names come from the existing native research code; they are guidance for
+future inspection, not permission to assume current offsets or serialized row
+types.
+
 This gives the eventual building editor a truthful workflow:
 
 1. inspect an existing piece;
