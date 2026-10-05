@@ -43,6 +43,13 @@ $results += [pscustomobject]@{ Check = 'IoStore DataTable index'; Status = 'OK';
 & powershell -ExecutionPolicy Bypass -File '.\tools\validate-building-datatables.ps1'
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 $results += [pscustomobject]@{ Check = 'Building DataTable catalog'; Status = 'OK'; ExitCode = 0 }
+if (Test-Path -LiteralPath '.\working\reports\runtime-inspection-catalog.json' -PathType Leaf) {
+    & powershell -ExecutionPolicy Bypass -File '.\tools\summarize-construction-properties.ps1'
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    $results += [pscustomobject]@{ Check = 'Construction property research index'; Status = 'OK'; ExitCode = 0 }
+} else {
+    $results += [pscustomobject]@{ Check = 'Construction property research index'; Status = 'SKIPPED (no runtime catalog)'; ExitCode = 0 }
+}
 
 Write-Output ''
 Write-Output 'Durin''s Vault validation summary'
