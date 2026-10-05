@@ -55,3 +55,21 @@ powershell -ExecutionPolicy Bypass -File .\tools\validate-building-assets.ps1
 
 This verifies every curated path is present in the current package scan before
 asset metadata is used by a future building generator.
+
+## Create an authoring scaffold
+
+The platform can create a truthful, non-deployable building-piece scaffold
+without inventing Blueprint, mesh, snap, or stability data:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\new-building-piece.ps1 `
+  -Id community.my-wall `
+  -DisplayName 'My Wall' `
+  -RecipeId My_Wall `
+  -Output .\working\authoring\my-wall.json
+```
+
+Scaffolds are marked `buildable: false` and use manual provenance until native
+inspection and asset evidence have been attached. This makes the authoring
+workflow usable now while preventing an incomplete record from being mistaken
+for a deployable custom building piece.

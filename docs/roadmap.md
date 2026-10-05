@@ -67,4 +67,5 @@ content is its first major application, not the entire project.
 - Phase 2: native discovery schema, wall inspection, and building-record validation complete
 - Phase 3: IoStore package indexing and building asset catalog validation underway
 - Phase 4: initial mod-definition schema and review-only deployment planner complete
-- Phase 5 onward: not started
+- Phase 5: catalog validation complete; truthful building-piece scaffolding underway
+- Phase 6 onward: not started
