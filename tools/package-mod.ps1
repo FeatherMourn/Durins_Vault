@@ -46,7 +46,7 @@ $archive = [IO.Compression.ZipFile]::OpenRead($outputPath)
 try {
     $entries = @($archive.Entries | ForEach-Object { $_.FullName })
     foreach ($relative in $expected) {
-        $entryName = ($mod.id + '/' + $relative).Replace('\', '/')
+        $entryName = ($mod.id + '/' + $relative).Replace('/', '\')
         if ($entries -notcontains $entryName) { throw "Package is missing declared entry: $relative" }
     }
 } finally { $archive.Dispose() }
