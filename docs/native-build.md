@@ -43,3 +43,11 @@ The UE4SS reference currently uses the `Game__Shipping__Win64` configuration.
 The resulting module is deployed as `ue4ss/Mods/DurinsVaultInspector/dlls/main.dll`.
 After launching a world, press `F3` while aiming at an object. The native
 inspector logs the hit actor and component full names to `UE4SS.log`.
+
+To stage a rebuilt DLL with a backup of the previous installation:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\stage-native-inspector.ps1 `
+  -BuildDll 'C:\path\to\DurinsVaultInspector.dll' `
+  -GameRoot 'H:\SteamLibrary\steamapps\common\The Lord of the Rings Return to Moria™'
+```
