@@ -22,6 +22,9 @@ $results += [pscustomobject]@{ Check = 'Profile deployment plan'; Status = 'OK';
 & powershell -ExecutionPolicy Bypass -File '.\tools\package-mod.ps1' -Manifest '.\mods\example-wall\mod.json' -Output '.\working\reports\example-wall.zip'
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 $results += [pscustomobject]@{ Check = 'Example mod package'; Status = 'OK'; ExitCode = 0 }
+& powershell -ExecutionPolicy Bypass -File '.\tools\package-mod.ps1' -Manifest '.\mods\durins-vault-inspector\mod.json' -Output '.\working\reports\durins-vault-inspector.zip'
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+$results += [pscustomobject]@{ Check = 'Lua inspector package'; Status = 'OK'; ExitCode = 0 }
 & powershell -ExecutionPolicy Bypass -File '.\tools\validate-discovery.ps1' -Discovery '.\data\discoveries\crude_wall_3x4_a.json'
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 $results += [pscustomobject]@{ Check = 'Native discovery record'; Status = 'OK'; ExitCode = 0 }
