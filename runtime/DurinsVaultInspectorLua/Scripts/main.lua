@@ -4,46 +4,52 @@ local GetKismetSystemLibrary = UEHelpers.GetKismetSystemLibrary
 local GetKismetMathLibrary = UEHelpers.GetKismetMathLibrary
 local GetPlayerController = UEHelpers.GetPlayerController
 
-local function actor_from_hit(hit)
-    if UnrealVersion:IsBelow(5, 0) then
-        return hit.Actor:Get()
-    end
-    return hit.HitObjectHandle.Actor:Get()
+local IsInitialized = false
+
+local function Init()
+    if not GetKismetSystemLibrary():IsValid() then error("KismetSystemLibrary not valid\n") end
+    if not GetKismetMathLibrary():IsValid() then error("KismetMathLibrary not valid\n") end
+    IsInitialized = true
 end
 
-local function inspect_target()
-    local controller = GetPlayerController()
-    if not controller:IsValid() or not controller.Pawn:IsValid() then
-        print("[DurinsVaultInspector] Player controller/pawn unavailable.\n")
-        return
+Init()
+
+local function GetActorFromHitResult(HitResult)
+    if UnrealVersion:IsBelow(5, 0) then
+        return HitResult.Actor:Get()
+    else
+        return HitResult.HitObjectHandle.Actor:Get()
     end
+end
 
-    local camera = controller.PlayerCameraManager
-    local start = camera:GetCameraLocation()
-    local forward = GetKismetMathLibrary():GetForwardVector(camera:GetCameraRotation())
-    local end_point = GetKismetMathLibrary():Add_VectorVector(
-        start,
-        GetKismetMathLibrary():Multiply_VectorInt(forward, 50000.0)
-    )
+local function GetObjectName()
+    if not IsInitialized then return end
+    local PlayerController = GetPlayerController()
+    local PlayerPawn = PlayerController.Pawn
+    local CameraManager = PlayerController.PlayerCameraManager
+    local StartVector = CameraManager:GetCameraLocation()
+    local AddValue = GetKismetMathLibrary():Multiply_VectorInt(
+        GetKismetMathLibrary():GetForwardVector(CameraManager:GetCameraRotation()), 50000.0)
+    local EndVector = GetKismetMathLibrary():Add_VectorVector(StartVector, AddValue)
+    local TraceColor = { ["R"] = 0, ["G"] = 0, ["B"] = 0, ["A"] = 0 }
+    local TraceHitColor = TraceColor
+    local EDrawDebugTrace_Type_None = 0
+    local ETraceTypeQuery_TraceTypeQuery1 = 0
+    local ActorsToIgnore = {}
+    local HitResult = {}
+    local WasHit = GetKismetSystemLibrary():LineTraceSingle(
+        PlayerPawn, StartVector, EndVector, ETraceTypeQuery_TraceTypeQuery1,
+        false, ActorsToIgnore, EDrawDebugTrace_Type_None, HitResult,
+        true, TraceColor, TraceHitColor, 0.0)
 
-    local hit = {}
-    local color = { R = 0, G = 255, B = 0, A = 255 }
-    local was_hit = GetKismetSystemLibrary():LineTraceSingle(
-        controller.Pawn, start, end_point, 0, false, {}, 0, hit, true,
-        color, color, 0.0
-    )
-
-    if not was_hit then
+    if WasHit then
+        local HitActor = GetActorFromHitResult(HitResult)
+        print(string.format("[DurinsVaultInspector] Target: %s\n", HitActor:GetFullName()))
+        print(string.format("[DurinsVaultInspector] Class: %s\n", HitActor:GetClass():GetFullName()))
+    else
         print("[DurinsVaultInspector] Nothing targeted.\n")
-        return
-    end
-
-    local actor = actor_from_hit(hit)
-    if actor and actor:IsValid() then
-        print(string.format("[DurinsVaultInspector] Target: %s\n", actor:GetFullName()))
-        print(string.format("[DurinsVaultInspector] Class: %s\n", actor:GetClass():GetFullName()))
     end
 end
 
 print("[DurinsVaultInspector] Lua inspector loaded. Press F3 to inspect the targeted actor.\n")
-RegisterKeyBind(Key.F3, inspect_target)
+RegisterKeyBind(Key.F3, GetObjectName)
