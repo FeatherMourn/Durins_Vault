@@ -10,6 +10,6 @@ $known = @{}
 foreach ($asset in @($index.assets)) { $known[[string]$asset.path] = $true }
 $missing = @($catalog.assets | Where-Object { -not $known.ContainsKey([string]$_.path) })
 if ($missing.Count -gt 0) { Write-Error (($missing | ForEach-Object { "Missing DataTable from index: $($_.path)" }) -join [Environment]::NewLine); exit 2 }
-$catalogCount = $catalog.assets.Length
-$indexCount = $index.assets.Length
+$catalogCount = ($catalog.assets | Measure-Object).Count
+$indexCount = ($index.assets | Measure-Object).Count
 [pscustomobject]@{ CatalogAssets = $catalogCount; IndexedDataTables = $indexCount; Status = 'OK' } | Format-List
