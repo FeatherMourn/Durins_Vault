@@ -13,6 +13,12 @@ records a buildable Blueprint class and recipe identifier. Mesh, material, snap,
 stability, and asset-path fields remain explicitly unknown instead of being
 guessed.
 
+The first asset-family fixture is
+[blockout-asset-families.json](../data/building/blockout-asset-families.json).
+It records twelve representative floor, foundation, stair, and wall paths
+found in the main IoStore container. These are references only; no game asset
+binary is bundled.
+
 This gives the eventual building editor a truthful workflow:
 
 1. inspect an existing piece;

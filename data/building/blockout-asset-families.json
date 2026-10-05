@@ -1,0 +1,25 @@
+{
+  "schema": "durins-vault.building-assets/v1",
+  "game": "return-to-moria",
+  "source": {
+    "container": "Moria-WindowsNoEditor.utoc",
+    "tool": "retoc_cli 0.1.5",
+    "package_count": 58549,
+    "selection": "Blockout SM_AR floor, foundation, stair, and wall families"
+  },
+  "bundled_assets": false,
+  "assets": [
+    { "family": "floor", "path": "/Game/Art/Assets/Blockout/SM_AR_Floor_1x1_A" },
+    { "family": "floor", "path": "/Game/Art/Assets/Blockout/SM_AR_Floor_2x2_A" },
+    { "family": "floor", "path": "/Game/Art/Assets/Blockout/SM_AR_Floor_3x3_A" },
+    { "family": "foundation", "path": "/Game/Art/Assets/Blockout/SM_AR_Foundation_2x2_A" },
+    { "family": "foundation", "path": "/Game/Art/Assets/Blockout/SM_AR_Foundation_3x3_A" },
+    { "family": "foundation", "path": "/Game/Art/Assets/Blockout/SM_AR_Foundation_6x6_A" },
+    { "family": "stairs", "path": "/Game/Art/Assets/Blockout/SM_AR_Stairs_1x1x1-5_A" },
+    { "family": "stairs", "path": "/Game/Art/Assets/Blockout/SM_AR_Stairs_2x2x2-5_A" },
+    { "family": "stairs", "path": "/Game/Art/Assets/Blockout/SM_AR_Stairs_3x3x2_A" },
+    { "family": "wall", "path": "/Game/Art/Assets/Blockout/SM_AR_Wall_1x1_A" },
+    { "family": "wall", "path": "/Game/Art/Assets/Blockout/SM_AR_Wall_3x3_A" },
+    { "family": "wall", "path": "/Game/Art/Assets/Blockout/SM_AR_Wall_3x3_Door_A" }
+  ]
+}
