@@ -9,11 +9,11 @@ $catalogPath = [IO.Path]::GetFullPath($Catalog)
 if (-not (Test-Path -LiteralPath $catalogPath -PathType Leaf)) { throw "Inspection catalog not found: $catalogPath" }
 $catalog = Get-Content -LiteralPath $catalogPath -Raw -Encoding UTF8 | ConvertFrom-Json
 $groups = @{}
-foreach ($record in @($catalog.records)) {
+foreach ($record in $catalog.records) {
     $className = [string]$record.class_full_name
     if ([string]::IsNullOrWhiteSpace($className)) { continue }
     if (-not $groups.ContainsKey($className)) { $groups[$className] = @{} }
-    foreach ($property in @($record.properties)) {
+    foreach ($property in $record.properties) {
         $name = [string]$property.name
         if ([string]::IsNullOrWhiteSpace($name)) { continue }
         $key = "$name|$([int]$property.offset)"
