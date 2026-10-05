@@ -1,0 +1,26 @@
+{
+  "schema": "durins-vault.mod/v1",
+  "id": "durins-vault.inspector",
+  "name": "Durin's Vault Lua Inspector",
+  "version": "0.1.0",
+  "game": {
+    "id": "return-to-moria",
+    "engine": "UE4.27"
+  },
+  "requires": [],
+  "layers": {
+    "runtime": [
+      {
+        "source": "runtime/DurinsVaultInspectorLua/Scripts/main.lua",
+        "destination": "${game_root}/Moria/Binaries/Win64/ue4ss/Mods/DurinsVaultInspector/Scripts/main.lua",
+        "load_order": 100
+      }
+    ],
+    "cooked_content": [],
+    "data_tables": [],
+    "research": [
+      "data/discoveries/crude_wall_3x4_a.json",
+      "data/research/construction-reflection.json"
+    ]
+  }
+}

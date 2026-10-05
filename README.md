@@ -57,6 +57,8 @@ The platform configuration contract is [durins-vault.project.json](durins-vault.
 
 The mod package contract is documented in [docs/mod-definition.md](docs/mod-definition.md), with a starter package in [mods/example-wall/mod.json](mods/example-wall/mod.json).
 
+The reusable Lua inspector is represented as [mods/durins-vault-inspector/mod.json](mods/durins-vault-inspector/mod.json). It can be planned or packaged like any community mod, but is not installed automatically.
+
 Building-piece research is tracked separately in [docs/building-toolkit.md](docs/building-toolkit.md).
 
 Community contribution rules are in [docs/contributing.md](docs/contributing.md).
