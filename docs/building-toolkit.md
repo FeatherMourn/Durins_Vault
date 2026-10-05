@@ -37,3 +37,13 @@ powershell -ExecutionPolicy Bypass -File .\tools\validate-building-piece.ps1 `
 The validator checks the record identity, source provenance, referenced source
 file, and any known dimensions. Unknown research fields are allowed; invented
 values are not required to make a record pass.
+
+The IoStore-backed asset catalog can be checked against the generated retoc
+index with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\validate-building-assets.ps1
+```
+
+This verifies every curated path is present in the current package scan before
+asset metadata is used by a future building generator.
