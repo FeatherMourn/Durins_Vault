@@ -99,6 +99,16 @@ namespace DurinsVault
                 output << ",\"component_full_name\":\"" << jsonAscii(component->GetFullName())
                        << "\",\"component_class_full_name\":\""
                        << jsonAscii(component->GetClassPrivate()->GetName()) << "\"";
+            output << ",\"properties\":[";
+            bool firstProperty = true;
+            for (auto* property : actor->GetClassPrivate()->ForEachProperty())
+            {
+                if (!firstProperty) output << ',';
+                firstProperty = false;
+                output << "{\"name\":\"" << jsonAscii(property->GetName())
+                       << "\",\"offset\":" << property->GetOffset_Internal() << "}";
+            }
+            output << ']';
             output << "}\n";
         }
 

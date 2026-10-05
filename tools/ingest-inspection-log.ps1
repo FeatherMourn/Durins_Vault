@@ -18,6 +18,7 @@ foreach ($line in Get-Content -LiteralPath $logPath -Encoding UTF8) {
         class_full_name = $hit.class_full_name
         component_full_name = $hit.component_full_name
         component_class_full_name = $hit.component_class_full_name
+        properties = @($hit.properties)
         timestamp = $hit.timestamp
         source = 'DurinsVaultInspectorNative'
     })

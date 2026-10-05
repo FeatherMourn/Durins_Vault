@@ -43,6 +43,9 @@ The UE4SS reference currently uses the `Game__Shipping__Win64` configuration.
 The resulting module is deployed as `ue4ss/Mods/DurinsVaultInspector/dlls/main.dll`.
 After launching a world, press `F3` while aiming at an object. The native
 inspector logs the hit actor and component full names to `UE4SS.log`.
+The JSONL research record is written relative to the game working directory at
+`Mods/DurinsVaultInspector/inspection.jsonl` and includes reflected property
+names and offsets for the hit actor class.
 
 To stage a rebuilt DLL with a backup of the previous installation:
 
