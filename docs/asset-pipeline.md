@@ -83,3 +83,14 @@ powershell -ExecutionPolicy Bypass -File .\tools\validate-asset-export.ps1 `
   -Export .\working\authoring\asset-export.json `
   -Index .\working\iostore-manifest\pakstore.json
 ```
+
+For a raw FModel properties export, use the importer first:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\import-fmodel-export.ps1 `
+  -Export 'I:\path\to\FModel\Output\Exports\Moria\Content\Tech\Data\Building\DT_Constructions.json' `
+  -AssetKind datatable `
+  -Output .\working\authoring\asset-export-dt-constructions.json
+```
+
+The importer writes the standard contract and invokes validation automatically.
