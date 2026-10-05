@@ -197,9 +197,10 @@ namespace DurinsVault
                 return;
             }
 
-            // UE4.27 FHitResult places Actor at 0x70 and Component at 0x78.
-            auto* hitActor = reinterpret_cast<const FWeakObjectPtr*>(traceParameters.data() + m_trace.outHit + 0x70)->Get();
-            auto* hitComponent = reinterpret_cast<const FWeakObjectPtr*>(traceParameters.data() + m_trace.outHit + 0x78)->Get();
+            // UE4.27 FHitResult places PhysMaterial at 0x60, Actor at 0x68,
+            // and Component at 0x70 within the 0x88-byte result.
+            auto* hitActor = reinterpret_cast<const FWeakObjectPtr*>(traceParameters.data() + m_trace.outHit + 0x68)->Get();
+            auto* hitComponent = reinterpret_cast<const FWeakObjectPtr*>(traceParameters.data() + m_trace.outHit + 0x70)->Get();
             if (hitActor)
             {
                 Output::send<LogLevel::Normal>(STR("[DurinsVaultInspector] F3 hit actor: {} | class: {}\n"),
