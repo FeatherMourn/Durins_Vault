@@ -1,0 +1,21 @@
+{
+  "schema": "durins-vault.building-mesh-dependencies/v1",
+  "building_piece": "moria.crude-wall-3x4-a",
+  "source_evidence": "data/research/crude-wall-blueprint-export.json",
+  "dependencies": [
+    {
+      "kind": "static_mesh",
+      "asset_path": "/Game/Art/Assets/Kits/Architecture/Suburbs/Crude_Wall_3x1",
+      "destructible_path": "/Game/Art/Assets/GPI/Destructible/DM_Crude_Wall_3x1_Destructible",
+      "component_variable": "Crude_Wall_3x1"
+    },
+    {
+      "kind": "static_mesh",
+      "asset_path": "/Game/Art/Assets/Kits/Architecture/Suburbs/Crude_Wall_3x3",
+      "destructible_path": "/Game/Art/Assets/GPI/Destructible/DM_Crude_Wall_3x3_Destructible",
+      "component_variable": "Crude_Wall_3x3_A"
+    }
+  ],
+  "next_action": "Export the two referenced mesh assets with a compatible asset reader; do not claim editor-ready native assets from Blueprint metadata alone.",
+  "verified": true
+}

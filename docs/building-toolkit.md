@@ -34,6 +34,12 @@ This gives the eventual building editor a truthful workflow:
 4. generate a new content definition;
 5. package and test it in an isolated profile.
 
+The verified Blueprint export also identifies the two source mesh dependencies
+in [crude-wall-mesh-dependencies.json](../data/building/crude-wall-mesh-dependencies.json).
+Those paths are evidence for export planning only; they are not treated as
+editor-importable assets until FModel or another compatible reader produces and
+validates the actual mesh files.
+
 ## Current authoring boundary
 
 The local `tools/UnrealEngine-4.27` checkout is source-only. It does not
