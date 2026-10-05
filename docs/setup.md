@@ -95,6 +95,24 @@ IoStore-backed catalog checks as one gate. It regenerates the ignored IoStore
 index automatically, so a fresh clone can run the same command. A nonzero
 result means the workspace is not ready for the next pipeline step.
 
+## Snapshot the active UE4SS profile
+
+Preview a backup without changing anything:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\snapshot-profile.ps1
+```
+
+Create the timestamped snapshot only when ready:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\snapshot-profile.ps1 -Apply
+```
+
+Snapshots are stored under the profile's ignored `working/backups` directory.
+The command copies the active UE4SS profile, including installed mods and
+configuration, and writes a snapshot manifest alongside it.
+
 ## Optional Unreal source access
 
 Epic/GitHub source access is not required for the current workflow. The project
