@@ -113,6 +113,9 @@ Snapshots are stored under the profile's ignored `working/backups` directory.
 The command copies the active UE4SS profile, including installed mods and
 configuration, and writes a snapshot manifest alongside it.
 
+For the remaining interactive asset-reader setup, see
+[fmodel-setup.md](fmodel-setup.md).
+
 ## Optional Unreal source access
 
 Epic/GitHub source access is not required for the current workflow. The project
