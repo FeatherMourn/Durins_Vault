@@ -33,3 +33,15 @@ powershell -ExecutionPolicy Bypass -File .\\tools\\validate-mod-set.ps1 `
 
 The mod-set check rejects duplicate IDs, unavailable dependencies, and cyclic
 dependency graphs. It does not install dependencies or modify the game.
+
+To create a review-only deployment plan for all installed project mods:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\\tools\\plan-profile.ps1 `
+  -ModsRoot .\\mods `
+  -JsonOutput working\\reports\\profile-plan.json
+```
+
+Pass one or more `-ModId` values to select a profile; required dependencies are
+included automatically. The planner reports missing source files and destination
+collisions and never copies files into the game directory.
