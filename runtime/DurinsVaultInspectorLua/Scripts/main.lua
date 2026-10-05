@@ -4,32 +4,6 @@ local GetKismetSystemLibrary = UEHelpers.GetKismetSystemLibrary
 local GetKismetMathLibrary = UEHelpers.GetKismetMathLibrary
 local GetPlayerController = UEHelpers.GetPlayerController
 
-local INSPECTION_LOG = "Moria/Saved/DurinsVault-inspections.jsonl"
-
-local function json_escape(value)
-    value = tostring(value or "")
-    value = value:gsub("\\", "\\\\")
-    value = value:gsub('"', '\\"')
-    value = value:gsub("\r", "\\r")
-    value = value:gsub("\n", "\\n")
-    return value
-end
-
-local function record_inspection(actor, class_name)
-    local file = io.open(INSPECTION_LOG, "a")
-    if not file then
-        print("[DurinsVaultInspector] Could not open structured inspection log.\n")
-        return
-    end
-    file:write(string.format(
-        '{"timestamp":"%s","actor_full_name":"%s","class_full_name":"%s"}\n',
-        json_escape(os.date("!%Y-%m-%dT%H:%M:%SZ")),
-        json_escape(actor:GetFullName()),
-        json_escape(class_name)
-    ))
-    file:close()
-end
-
 local function actor_from_hit(hit)
     if UnrealVersion:IsBelow(5, 0) then
         return hit.Actor:Get()
@@ -66,10 +40,8 @@ local function inspect_target()
 
     local actor = actor_from_hit(hit)
     if actor and actor:IsValid() then
-        local class_name = actor:GetClass():GetFullName()
         print(string.format("[DurinsVaultInspector] Target: %s\n", actor:GetFullName()))
-        print(string.format("[DurinsVaultInspector] Class: %s\n", class_name))
-        record_inspection(actor, class_name)
+        print(string.format("[DurinsVaultInspector] Class: %s\n", actor:GetClass():GetFullName()))
     end
 end
 
