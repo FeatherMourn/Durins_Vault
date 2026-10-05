@@ -50,6 +50,12 @@ if (Test-Path -LiteralPath '.\working\reports\runtime-inspection-catalog.json' -
 } else {
     $results += [pscustomobject]@{ Check = 'Construction property research index'; Status = 'SKIPPED (no runtime catalog)'; ExitCode = 0 }
 }
+$exportFiles = @(Get-ChildItem -LiteralPath '.\working\authoring' -Filter 'asset-export*.json' -File -ErrorAction SilentlyContinue)
+foreach ($exportFile in $exportFiles) {
+    & powershell -ExecutionPolicy Bypass -File '.\tools\validate-asset-export.ps1' -Export $exportFile.FullName
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    $results += [pscustomobject]@{ Check = "Asset metadata export: $($exportFile.Name)"; Status = 'OK'; ExitCode = 0 }
+}
 
 Write-Output ''
 Write-Output 'Durin''s Vault validation summary'
