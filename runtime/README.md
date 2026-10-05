@@ -7,3 +7,8 @@ module build is verified.
 
 The module follows the public UE4SS C++ mod shape used by the local
 MoriaAdvancedBuilder reference project. UE4SS itself is not vendored here.
+
+Run `tools/check-native-build.ps1` before configuring CMake. The currently
+installed UE4SS developer archive contains runtime binaries but not the SDK
+headers required by this source tree, so the native module is intentionally not
+claimed to be buildable until those headers are supplied.
