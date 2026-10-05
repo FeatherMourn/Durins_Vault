@@ -21,6 +21,17 @@ powershell -ExecutionPolicy Bypass -File .\tools\durins-vault.ps1 -Command plan
 These commands report status, run the complete safety validation, or create a
 review-only profile deployment plan. None of them installs or modifies a mod.
 
+To create a portable package after a manifest passes validation:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\package-mod.ps1 `
+  -Manifest .\mods\example-wall\mod.json `
+  -Output .\out\example-wall.zip
+```
+
+Packaging includes the manifest and only its declared artifacts; it never
+copies files into the game directory.
+
 The platform configuration contract is [durins-vault.project.json](durins-vault.project.json).
 
 The mod package contract is documented in [docs/mod-definition.md](docs/mod-definition.md), with a starter package in [mods/example-wall/mod.json](mods/example-wall/mod.json).
