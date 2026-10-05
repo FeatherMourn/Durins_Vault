@@ -64,7 +64,7 @@ content is its first major application, not the entire project.
 
 - Phase 0: underway
 - Phase 1: initial workspace, profile validation, and UE4SS snapshot tooling complete
-- Phase 2: first native wall inspection and building-record validation complete
+- Phase 2: native discovery schema, wall inspection, and building-record validation complete
 - Phase 3: IoStore package indexing and building asset catalog validation underway
 - Phase 4: initial mod-definition schema and review-only deployment planner complete
 - Phase 5 onward: not started
