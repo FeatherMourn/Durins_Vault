@@ -1,0 +1,22 @@
+# Local game/tool paths
+local/
+tools/bin/
+working/
+working/backups/
+
+# Build output
+build/
+out/
+*.dll
+*.pdb
+*.lib
+*.obj
+
+# Generated diagnostic data
+data/discoveries/*.json
+data/discoveries/*.log
+
+# IDE/user files
+.vs/
+*.user
+*.suo

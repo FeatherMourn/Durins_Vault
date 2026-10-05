@@ -1,0 +1,18 @@
+{
+  "schema": "durins-vault.building-piece/v1",
+  "id": "moria.crude-wall-3x4-a",
+  "display_name": "Stone Wall",
+  "blueprint_class": "BP_Crude_Wall_3x4_A_C",
+  "blueprint_path": null,
+  "recipe_id": "Crude_Wall",
+  "buildable": true,
+  "dimensions": null,
+  "snap_points": [],
+  "stability": null,
+  "source": {
+    "kind": "native-inspection",
+    "path": "data/discoveries/crude_wall_3x4_a.json",
+    "captured_on": "2026-10-05",
+    "tool_version": "MoriaAdvancedBuilder 8.7.1"
+  }
+}

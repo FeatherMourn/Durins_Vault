@@ -1,0 +1,38 @@
+{
+  "schema": "durins-vault.project/v1",
+  "project": {
+    "id": "durins-vault",
+    "name": "Durin's Vault",
+    "kind": "return-to-moria-modding-platform",
+    "version": "0.1.0"
+  },
+  "game": {
+    "id": "return-to-moria",
+    "engine": "UE4.27",
+    "install_roots": [
+      "H:/SteamLibrary/steamapps/common/The Lord of the Rings Return to Moria™"
+    ],
+    "test_profile": "steam-local"
+  },
+  "profiles": {
+    "steam-local": {
+      "ue4ss_root": "${game_root}/Moria/Binaries/Win64/ue4ss",
+      "content_root": "${game_root}/Moria/Content",
+      "pak_root": "${game_root}/Moria/Content/Paks",
+      "backup_root": "working/backups/steam-local",
+      "deployment_mode": "profiled"
+    }
+  },
+  "tools": {
+    "fmodel": "I:/My Drive/Mines of Moria Mods/tools/FModel/app/FModel.exe",
+    "retoc": null,
+    "uassetgui": null,
+    "unreal_mapping": null
+  },
+  "modules": [
+    "runtime",
+    "research",
+    "content",
+    "building"
+  ]
+}

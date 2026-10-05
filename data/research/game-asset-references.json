@@ -1,0 +1,32 @@
+{
+  "schema": "durins-vault.research-assets/v1",
+  "game": "return-to-moria",
+  "engine": "UE4.27",
+  "source_project": "MoriaAdvancedBuilder",
+  "source_document": "docs/game-assets/MANIFEST.md",
+  "bundled_assets": false,
+  "notes": "Reference paths only. These assets remain in the game installation and are not redistributed by Durin's Vault.",
+  "assets": [
+    { "path": "/Game/UI/MainMenu/WorldSelect/WBP_UI_JoinWorldScreen", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/MainMenu/WorldSelect/WBP_UI_ChooseWorldScreen", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/MainMenu/WorldSelect/WBP_JoinWorldScreen_GameDataPanel", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/MainMenu/WorldSelect/WBP_UI_AdvancedJoinOptions", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/MainMenu/WorldSelect/WBP_UI_SessionHistoryList", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/MainMenu/WorldSelect/WBP_UI_SessionHistory_Item", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/MainMenu/WBP_UI_NetworkAlert", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/MainMenu/WBP_FrontEndButton", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/PopUp/WBP_UI_PopUp_DedicatedServerDetails", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/Shared/UI_WBP_HUD_ControlPrompt", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/Shared/UI_WBP_Text_Header", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/Stations/Shared/UI_WBP_LowerThird", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/Stations/ForgeAndCrafting/UI_WBP_Craft_BigButton", "kind": "WidgetBlueprint" },
+    { "path": "/Game/UI/Font/Leksa", "kind": "Font" },
+    { "path": "/Game/UI/Font/Leksa_Regular", "kind": "FontFace" },
+    { "path": "/Game/UI/Font/Leksa_Bold", "kind": "FontFace" },
+    { "path": "/Game/UI/Font/Leksa_Italic", "kind": "FontFace" },
+    { "path": "/Game/UI/Font/Leksa_Bold-Italic", "kind": "FontFace" },
+    { "path": "/Game/UI/Font/Tisa_Sans", "kind": "Font" },
+    { "path": "/Game/UI/Font/DT_RichTextStyles", "kind": "DataTable" },
+    { "path": "/Game/UI/textures/Widgets/T_UI_NetworkAlertPanel", "kind": "Texture" }
+  ]
+}

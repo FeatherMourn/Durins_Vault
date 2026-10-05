@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://durins-vault.local/schema/mod-definition/v1",
+  "title": "Durin's Vault mod definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "name", "version", "game", "requires", "layers"],
+  "properties": {
+    "schema": { "const": "durins-vault.mod/v1" },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "game": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "engine"],
+      "properties": {
+        "id": { "const": "return-to-moria" },
+        "engine": { "const": "UE4.27" },
+        "game_versions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "requires": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "version"],
+        "properties": {
+          "id": { "type": "string" },
+          "version": { "type": "string" }
+        }
+      }
+    },
+    "layers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime", "cooked_content", "data_tables", "research"],
+      "properties": {
+        "runtime": { "$ref": "#/$defs/artifactList" },
+        "cooked_content": { "$ref": "#/$defs/artifactList" },
+        "data_tables": { "$ref": "#/$defs/artifactList" },
+        "research": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "artifactList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "destination"],
+        "properties": {
+          "source": { "type": "string", "minLength": 1 },
+          "destination": { "type": "string", "minLength": 1 },
+          "load_order": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

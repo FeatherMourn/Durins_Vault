@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://durins-vault.local/schema/building-piece/v1",
+  "title": "Durin's Vault building piece",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "display_name", "blueprint_class", "recipe_id", "source"],
+  "properties": {
+    "schema": { "const": "durins-vault.building-piece/v1" },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+    "display_name": { "type": "string", "minLength": 1 },
+    "blueprint_class": { "type": "string", "minLength": 1 },
+    "blueprint_path": { "type": ["string", "null"] },
+    "recipe_id": { "type": "string", "minLength": 1 },
+    "buildable": { "type": "boolean" },
+    "dimensions": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 },
+        "depth": { "type": "number", "exclusiveMinimum": 0 },
+        "unit": { "const": "cm" }
+      }
+    },
+    "snap_points": { "type": "array", "items": { "type": "object" } },
+    "stability": { "type": ["object", "null"] },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "path"],
+      "properties": {
+        "kind": { "enum": ["native-inspection", "fmodel", "manual"] },
+        "path": { "type": "string", "minLength": 1 },
+        "captured_on": { "type": "string" },
+        "tool_version": { "type": "string" }
+      }
+    }
+  }
+}
