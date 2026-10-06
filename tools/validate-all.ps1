@@ -4,7 +4,8 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$projectRoot = (Get-Location).Path
+$projectRoot = Split-Path -Parent $PSScriptRoot
+Set-Location -LiteralPath $projectRoot
 $scriptRoot = Join-Path $projectRoot 'tools'
 $results = @()
 & powershell -ExecutionPolicy Bypass -File '.\tools\validate-project.ps1'
