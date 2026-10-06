@@ -23,7 +23,7 @@ $definition = @"
     <add_row name="$RowName">$escaped</add_row>
   </mod>
   <mod file="Moria\Content\Tech\Data\Building\DT_ConstructionRecipes.json">
-    <add_row name="$RowName"><![CDATA[{}]]></add_row>
+    <add_row name="$RowName"><![CDATA[{"Value":[]}]]></add_row>
   </mod>
 </definition>
 "@
