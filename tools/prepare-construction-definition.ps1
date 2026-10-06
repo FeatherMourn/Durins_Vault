@@ -12,7 +12,7 @@ if ($null -eq $row) { throw "Row '$RowName' was not found in '$SourceJson'." }
 
 New-Item -ItemType Directory -Force -Path $OutputDirectory | Out-Null
 $valueJson = @{ Value = @($row.Value) } | ConvertTo-Json -Depth 100 -Compress
-$escaped = [System.Security.SecurityElement]::Escape($valueJson)
+$escaped = '<![CDATA[' + $valueJson + ']]>'
 $definition = @"
 <?xml version="1.0" encoding="UTF-8"?>
 <definition>
