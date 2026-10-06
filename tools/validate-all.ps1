@@ -49,6 +49,9 @@ $results += [pscustomobject]@{ Check = 'Building/DataTable cross-reference'; Sta
 & powershell -ExecutionPolicy Bypass -File '.\tools\validate-cooked-prototype.ps1' -Manifest '.\data\building\crude-wall-variant-prototype.json'
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 $results += [pscustomobject]@{ Check = 'Cooked building prototype handoff'; Status = 'OK (authoring gate)'; ExitCode = 0 }
+& powershell -ExecutionPolicy Bypass -File '.\tools\validate-construction-row-plan.ps1'
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+$results += [pscustomobject]@{ Check = 'Construction row plan'; Status = 'OK (not deployable)'; ExitCode = 0 }
 if (Test-Path -LiteralPath '.\working\reports\runtime-inspection-catalog.json' -PathType Leaf) {
     & powershell -ExecutionPolicy Bypass -File '.\tools\summarize-construction-properties.ps1'
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

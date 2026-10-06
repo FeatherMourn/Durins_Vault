@@ -1,0 +1,21 @@
+{
+  "schema": "durins-vault.construction-row-plan/v1",
+  "status": "PLAN_ONLY",
+  "game": "return-to-moria",
+  "datatable": "/Game/Tech/Data/Building/DT_Constructions",
+  "row_struct": "MorConstructionDefinition",
+  "clone_row": "Crude_Wall",
+  "new_row": "DurinsVault_Crude_Wall_Variant",
+  "overrides": {
+    "display_name": "Durin's Vault Wall Variant",
+    "actor": "/Game/DurinsVault/Building/BP_Crude_Wall_Variant.BP_Crude_Wall_Variant_C",
+    "tag": "UI.Construction.Category.Crude.Walls",
+    "enabled_state": "ERowEnabledState::Live"
+  },
+  "evidence": {
+    "source_export": "data/research/construction-datatable-export.json",
+    "verified_schema": true,
+    "serialized_row_fields": false,
+    "deployable": false
+  }
+}
