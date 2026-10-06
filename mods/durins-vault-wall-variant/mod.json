@@ -9,7 +9,18 @@
   },
   "requires": [],
   "layers": {
-    "runtime": [],
+    "runtime": [
+      {
+        "source": "mods/durins-vault-wall-variant/runtime-definition/Durin's Vault Wall Variant.ini",
+        "destination": "${game_root}/Moria/Binaries/Win64/ue4ss/Mods/MoriaCppMod/definitions/Durin's Vault Wall Variant.ini",
+        "load_order": 100
+      },
+      {
+        "source": "mods/durins-vault-wall-variant/runtime-definition/DurinsVaultWallVariant/DT_Constructions_DurinsVaultWallVariant.def",
+        "destination": "${game_root}/Moria/Binaries/Win64/ue4ss/Mods/MoriaCppMod/definitions/DurinsVaultWallVariant/DT_Constructions_DurinsVaultWallVariant.def",
+        "load_order": 100
+      }
+    ],
     "cooked_content": [
       {
         "source": "mods/durins-vault-wall-variant/cooked/DurinsVaultVariant_P.utoc",
