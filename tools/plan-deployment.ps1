@@ -8,7 +8,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$manifestPath = [IO.Path]::GetFullPath($Manifest)
+$manifestPath = if ([IO.Path]::IsPathRooted($Manifest)) { $Manifest } else { [IO.Path]::GetFullPath($Manifest) }
 $modRoot = Split-Path -Parent $manifestPath
 $projectPath = if ($ProjectFile) { [IO.Path]::GetFullPath($ProjectFile) } else { Join-Path (Split-Path -Parent (Split-Path -Parent $modRoot)) 'durins-vault.project.json' }
 $projectRoot = Split-Path -Parent $projectPath

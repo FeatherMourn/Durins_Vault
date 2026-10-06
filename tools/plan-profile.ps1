@@ -7,13 +7,17 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$root = [IO.Path]::GetFullPath($ModsRoot)
-$projectPath = if ($ProjectFile) { [IO.Path]::GetFullPath($ProjectFile) } else { Join-Path (Split-Path -Parent $root) 'durins-vault.project.json' }
+function Resolve-AbsolutePath([string]$Value) {
+    if ([IO.Path]::IsPathRooted($Value)) { return $Value }
+    return [IO.Path]::GetFullPath($Value)
+}
+$root = Resolve-AbsolutePath $ModsRoot
+$projectPath = if ($ProjectFile) { Resolve-AbsolutePath $ProjectFile } else { Join-Path (Split-Path -Parent $root) 'durins-vault.project.json' }
 $projectRoot = Split-Path -Parent $projectPath
 $project = Get-Content -LiteralPath $projectPath -Raw -Encoding UTF8 | ConvertFrom-Json
 $gameRoot = @($project.game.install_roots | Where-Object { Test-Path -LiteralPath $_ -PathType Container } | Select-Object -First 1)
 if (-not $gameRoot) { throw 'No configured game installation was found.' }
-$gameRoot = [IO.Path]::GetFullPath($gameRoot)
+$gameRoot = Resolve-AbsolutePath $gameRoot
 
 $records = @{}
 foreach ($file in @(Get-ChildItem -LiteralPath $root -Filter mod.json -File -Recurse)) {
@@ -48,11 +52,11 @@ foreach ($id in $ordered) {
     foreach ($layerName in @('runtime', 'cooked_content', 'data_tables')) {
         foreach ($artifact in @($mod.layers.$layerName)) {
             if ($null -eq $artifact) { continue }
-            $source = [IO.Path]::GetFullPath((Join-Path $projectRoot $artifact.source))
+            $source = Resolve-AbsolutePath (Join-Path $projectRoot $artifact.source)
             $destination = [string]$artifact.destination
             $destination = $destination.Replace('${game_root}', $gameRoot)
             if (-not [IO.Path]::IsPathRooted($destination)) { $destination = Join-Path $gameRoot $destination }
-            $destination = [IO.Path]::GetFullPath($destination)
+            $destination = Resolve-AbsolutePath $destination
             $key = $destination.ToLowerInvariant()
             $collision = $destinationOwners[$key]
             $plan.Add([pscustomobject]@{
@@ -73,7 +77,8 @@ foreach ($id in $ordered) {
 }
 $result = @($plan)
 if ($JsonOutput) {
-    $outputPath = [IO.Path]::GetFullPath((Join-Path $projectRoot $JsonOutput))
+    $outputCandidate = if ([IO.Path]::IsPathRooted($JsonOutput)) { $JsonOutput } else { Join-Path $projectRoot $JsonOutput }
+    $outputPath = Resolve-AbsolutePath $outputCandidate
     New-Item -ItemType Directory -Path (Split-Path -Parent $outputPath) -Force | Out-Null
     ConvertTo-Json -InputObject $result -Depth 8 | Set-Content -LiteralPath $outputPath -Encoding UTF8
 }
