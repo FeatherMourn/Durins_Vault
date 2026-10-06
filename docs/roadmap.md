@@ -65,7 +65,7 @@ content is its first major application, not the entire project.
 - Phase 0: underway
 - Phase 1: initial workspace, profile validation, and UE4SS snapshot tooling complete
 - Phase 2: native discovery schema and verified target inspection complete; DataTable and Blueprint discovery remain underway
-- Phase 3: IoStore indexing plus verified Blueprint and construction-DataTable metadata capture complete for the first fixture; broader exports and round-tripping remain underway
+- Phase 3: IoStore indexing, FModel export provenance, legacy UAssetGUI round-tripping, and reproducible retoc packaging are verified for the first fixture
 - Phase 4: initial mod-definition schema and review-only deployment planner complete
-- Phase 5: catalog validation, property-index research, and first building/DataTable cross-reference complete; the first reused-mesh cooked-content prototype is specified, with authoring/cooking environment still gated on a built UE4.27 editor
+- Phase 5: catalog validation, property-index research, building/DataTable cross-reference, UE4.27 authoring, mesh assignment, cooking, and a packaged wall-variant prototype are verified; in-game menu registration remains unverified
 - Phase 6 onward: not started
