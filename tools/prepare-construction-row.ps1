@@ -14,7 +14,7 @@ $row.data.DisplayName.LocalizedString = "Durin's Vault Wall Variant"
 $row.data.Description.Key = 'DurinsVault_Crude_Wall_Variant.Description'
 $row.data.Description.SourceString = 'A wall variant authored with Durin''s Vault.'
 $row.data.Description.LocalizedString = 'A wall variant authored with Durin''s Vault.'
-$actor = '/Game/DurinsVault/Building/BP_Crude_Wall_Variant.BP_Crude_Wall_Variant_C'
+$actor = '/Game/Durins_Vault/Building/Blueprints/BP_Crude_Wall_Variant.BP_Crude_Wall_Variant_C'
 $row.data.Actor.AssetPathName = $actor
 $row.data.BackwardCompatibilityActors[0].AssetPathName = $actor
 $row | ConvertTo-Json -Depth 30 | Set-Content -LiteralPath $OutputPath -Encoding UTF8

@@ -8,7 +8,7 @@
   "new_row": "DurinsVault_Crude_Wall_Variant",
   "overrides": {
     "display_name": "Durin's Vault Wall Variant",
-    "actor": "/Game/DurinsVault/Building/BP_Crude_Wall_Variant.BP_Crude_Wall_Variant_C",
+    "actor": "/Game/Durins_Vault/Building/Blueprints/BP_Crude_Wall_Variant.BP_Crude_Wall_Variant_C",
     "tag": "UI.Construction.Category.Crude.Walls",
     "enabled_state": "ERowEnabledState::Live"
   },

@@ -3,7 +3,7 @@
   "id": "durins-vault.crude-wall-variant",
   "source_piece": "data/building/crude-wall-3x4-a.json",
   "target": {
-    "blueprint_package": "/Game/DurinsVault/Building/BP_Crude_Wall_Variant",
+    "blueprint_package": "/Game/Durins_Vault/Building/Blueprints/BP_Crude_Wall_Variant",
     "blueprint_class": "BP_Crude_Wall_Variant_C",
     "reuse_mesh": true
   },
