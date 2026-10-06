@@ -5,7 +5,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$projectRoot = (Get-Location).Path
+$projectRoot = Split-Path -Parent $PSScriptRoot
 $manifestPath = [IO.Path]::GetFullPath($Manifest)
 $modRoot = Split-Path -Parent $manifestPath
 $mod = Get-Content -LiteralPath $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -46,8 +46,9 @@ $archive = [IO.Compression.ZipFile]::OpenRead($outputPath)
 try {
     $entries = @($archive.Entries | ForEach-Object { $_.FullName })
     foreach ($relative in $expected) {
-        $entryName = ($mod.id + '/' + $relative).Replace('/', '\')
-        if ($entries -notcontains $entryName) { throw "Package is missing declared entry: $relative" }
+        $entryName = ($mod.id + '/' + $relative).Replace('\', '/')
+        $normalizedEntries = @($entries | ForEach-Object { $_.Replace('\', '/') })
+        if ($normalizedEntries -notcontains $entryName) { throw "Package is missing declared entry: $relative" }
     }
 } finally { $archive.Dispose() }
 Remove-Item -LiteralPath $stageRoot -Recurse -Force
