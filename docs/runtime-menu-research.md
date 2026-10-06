@@ -13,6 +13,10 @@ This note records the current evidence for the first cooked building prototype.
 
 The new row is not visible in the player-facing build menu. Table insertion and recipe-handle redirection are therefore insufficient evidence of buildability. The remaining investigation is the game's discovery/UI population path: the runtime module now requests discovery for the injected recipe once per world, and the next fresh session must verify whether that changes the widget population.
 
+## Current UI boundary evidence
+
+Fresh native diagnostics show that the injected construction row, recipe cache entry, and discovery-state entries exist before the build tab constructs. The game then creates normal `UI_WBP_BuildPicker_Row` instances and populates their `buildItemList`/`Blocks` arrays with the expected native cards (observed counts vary by category). The Durin's Vault card is absent from every accepted list, so the remaining gate is the BuildPicker eligibility/population filter rather than table loading or discovery insertion. The unsafe direct-widget experiment remains disabled because it produced a visible but non-interactive card and later crashed when clicked.
+
 Until a fresh runtime capture shows the variant in the menu and allows placement, the building record must remain `buildable: false`.
 
 ## Safety boundary
