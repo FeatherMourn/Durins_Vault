@@ -68,4 +68,5 @@ content is its first major application, not the entire project.
 - Phase 3: IoStore indexing, FModel export provenance, legacy UAssetGUI round-tripping, and reproducible retoc packaging are verified for the first fixture
 - Phase 4: initial mod-definition schema and review-only deployment planner complete
 - Phase 5: catalog validation, property-index research, building/DataTable cross-reference, UE4.27 authoring, mesh assignment, cooking, and a packaged wall-variant prototype are verified; in-game menu registration remains unverified
+- Platform gate: the location-independent validation runner currently passes 19 checks, including the native discovery record, asset/DataTable provenance, mod packaging, construction-property index, and authoring handoff
 - Phase 6 onward: not started
