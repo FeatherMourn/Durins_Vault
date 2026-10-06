@@ -1,0 +1,36 @@
+{
+  "schema": "durins-vault.mod/v1",
+  "id": "durins-vault.wall-variant",
+  "name": "Durin's Vault Wall Variant",
+  "version": "0.1.0",
+  "game": {
+    "id": "return-to-moria",
+    "engine": "UE4.27"
+  },
+  "requires": [],
+  "layers": {
+    "runtime": [],
+    "cooked_content": [
+      {
+        "source": "mods/durins-vault-wall-variant/cooked/DurinsVaultVariant_P.utoc",
+        "destination": "${game_root}/Moria/Content/Paks/DurinsVaultVariant_P.utoc",
+        "load_order": 200
+      },
+      {
+        "source": "mods/durins-vault-wall-variant/cooked/DurinsVaultVariant_P.ucas",
+        "destination": "${game_root}/Moria/Content/Paks/DurinsVaultVariant_P.ucas",
+        "load_order": 200
+      },
+      {
+        "source": "mods/durins-vault-wall-variant/cooked/DurinsVaultVariant_P.pak",
+        "destination": "${game_root}/Moria/Content/Paks/DurinsVaultVariant_P.pak",
+        "load_order": 200
+      }
+    ],
+    "data_tables": [],
+    "research": [
+      "data/building/crude-wall-variant-row.json",
+      "data/building/crude-wall-variant-prototype.json"
+    ]
+  }
+}
