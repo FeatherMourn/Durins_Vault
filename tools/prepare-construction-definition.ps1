@@ -22,6 +22,9 @@ $definition = @"
   <mod file="Moria\Content\Tech\Data\Building\DT_Constructions.json">
     <add_row name="$RowName">$escaped</add_row>
   </mod>
+  <mod file="Moria\Content\Tech\Data\Building\DT_ConstructionRecipes.json">
+    <add_row name="$RowName"><![CDATA[{}]]></add_row>
+  </mod>
 </definition>
 "@
 $defPath = Join-Path $OutputDirectory 'DT_Constructions_DurinsVaultWallVariant.def'
