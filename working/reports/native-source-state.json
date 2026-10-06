@@ -12,6 +12,6 @@
     "MyCPPMods/MoriaCppMod/src/moria_unlock.inl",
     "MyCPPMods/MoriaCppMod/src/moria_secondary_menu.inl"
   ],
-  "diff_stat": "MyCPPMods/MoriaCppMod/src/dllmain.cpp              | 554 +++++++++++++++++++++\n .../MoriaCppMod/src/moria_DefinitionProcessing.inl | 157 +++++-\n MyCPPMods/MoriaCppMod/src/moria_common.h           |   1 +\n MyCPPMods/MoriaCppMod/src/moria_overlay.cpp        |  22 +-\n MyCPPMods/MoriaCppMod/src/moria_unlock.inl         | 173 +++++++\n 5 files changed, 900 insertions(+), 7 deletions(-)",
-  "recorded_on": "2026-10-06T03:57:51.8819022Z"
+  "diff_stat": "MyCPPMods/MoriaCppMod/src/dllmain.cpp              | 556 +++++++++++++++++++++\n .../MoriaCppMod/src/moria_DefinitionProcessing.inl | 157 +++++-\n MyCPPMods/MoriaCppMod/src/moria_common.h           |   1 +\n MyCPPMods/MoriaCppMod/src/moria_overlay.cpp        |  22 +-\n MyCPPMods/MoriaCppMod/src/moria_unlock.inl         | 173 +++++++\n 5 files changed, 902 insertions(+), 7 deletions(-)",
+  "recorded_on": "2026-10-06T04:00:27.0738146Z"
 }
