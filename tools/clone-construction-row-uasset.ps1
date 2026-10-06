@@ -18,7 +18,8 @@ foreach ($property in $clone.Value) {
     elseif ($property.Name -eq 'Actor') { $property.Value.AssetPath.AssetName = $actor }
     elseif ($property.Name -eq 'BackwardCompatibilityActors') { $property.Value[0].Value[0].Value.AssetPath.AssetName = $actor }
 }
-$asset.Exports[0].Table.Data = @($table) + @($clone)
+$remaining = @($table | Where-Object { $_.Name -ne $rowName })
+$asset.Exports[0].Table.Data = $remaining + @($clone)
 $requiredNames = @($rowName, "$rowName.Name", "$rowName.Description", $actor)
 foreach ($name in $requiredNames) {
     if (@($asset.NameMap) -notcontains $name) { $asset.NameMap += $name }
