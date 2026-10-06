@@ -13,17 +13,17 @@
     "cooked_content": [
       {
         "source": "mods/durins-vault-wall-variant/cooked/DurinsVaultVariant_P.utoc",
-        "destination": "${game_root}/Moria/Content/Paks/DurinsVaultVariant_P.utoc",
+        "destination": "${game_root}/Moria/Content/Paks/mods/DurinsVaultVariant_P.utoc",
         "load_order": 200
       },
       {
         "source": "mods/durins-vault-wall-variant/cooked/DurinsVaultVariant_P.ucas",
-        "destination": "${game_root}/Moria/Content/Paks/DurinsVaultVariant_P.ucas",
+        "destination": "${game_root}/Moria/Content/Paks/mods/DurinsVaultVariant_P.ucas",
         "load_order": 200
       },
       {
         "source": "mods/durins-vault-wall-variant/cooked/DurinsVaultVariant_P.pak",
-        "destination": "${game_root}/Moria/Content/Paks/DurinsVaultVariant_P.pak",
+        "destination": "${game_root}/Moria/Content/Paks/mods/DurinsVaultVariant_P.pak",
         "load_order": 200
       }
     ],
