@@ -1,0 +1,15 @@
+{
+  "schema": "durins-vault.native-source-state/v1",
+  "reference_root": "I:\\My Drive\\Mines of Moria Mods\\work\\reference\\MoriaAdvancedBuilder",
+  "reference_commit": "bba9708030b770c362fe8b5a0b72317cbf58e223",
+  "source_scope": "MyCPPMods/MoriaCppMod/src",
+  "dirty": true,
+  "dirty_files": [
+    "MyCPPMods/MoriaCppMod/src/dllmain.cpp",
+    "MyCPPMods/MoriaCppMod/src/moria_DefinitionProcessing.inl",
+    "MyCPPMods/MoriaCppMod/src/moria_unlock.inl",
+    "MyCPPMods/MoriaCppMod/src/moria_secondary_menu.inl"
+  ],
+  "diff_stat": "MyCPPMods/MoriaCppMod/src/dllmain.cpp              | 541 +++++++++++++++++++++\n .../MoriaCppMod/src/moria_DefinitionProcessing.inl | 157 +++++-\n MyCPPMods/MoriaCppMod/src/moria_unlock.inl         | 173 +++++++\n 3 files changed, 865 insertions(+), 6 deletions(-)",
+  "recorded_on": "2026-10-06T03:35:30.5386136Z"
+}
